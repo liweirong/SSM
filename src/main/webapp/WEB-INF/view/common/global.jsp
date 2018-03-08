@@ -5,7 +5,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + ctx; %>
 <html>
 <head>
-    <title>我是title(全局性的)</title>
+    <title>title(全局性的)</title>
 </head>
 <body>
 <input type=hidden class="ctx4Global" value=<%=ctx%> />

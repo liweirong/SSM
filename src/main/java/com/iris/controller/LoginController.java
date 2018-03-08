@@ -1,5 +1,6 @@
 package com.iris.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.iris.annotation.Log;
 import com.iris.model.User;
 import com.iris.service.UserService;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by jiangcaijun on 2017/3/29.
  */
@@ -27,6 +30,27 @@ public class LoginController extends BaseController{
     @Autowired
     @Qualifier("userService")
     private UserService userService;
+
+
+    @Log("进入index")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index(Model model) {
+        LOG.info("进入index");
+        return "index";
+    }
+
+    /**
+     * 获取request的hashCode，验证其是否线程安全
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/testRequestHashCode", method = RequestMethod.POST)
+    public Object testRequestHashCode(HttpServletRequest request) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("requestHashCode",request.hashCode());
+        return renderSuccess(jsonObject.toJSONString());
+    }
 
     /**
      * GET 登录

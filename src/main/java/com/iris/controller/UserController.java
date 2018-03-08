@@ -1,7 +1,6 @@
 package com.iris.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.iris.annotation.Redis;
 import com.iris.model.User;
 import com.iris.service.UserService;
 import org.apache.log4j.Logger;
@@ -52,7 +51,6 @@ public class UserController extends BaseController{
 	 * @return String    返回类型
 	 * @throws
 	 */
-	@Redis
 	@RequestMapping(value = "/testAjax", method = RequestMethod.POST)
 	@ResponseBody
 	public Object test(Model model) {

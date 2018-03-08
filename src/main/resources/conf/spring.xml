@@ -15,15 +15,14 @@
     http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
 	<!-- 引入jdbc配置文件 -->
-	<context:property-placeholder location="
-		classpath:jdbc.properties,
-		classpath:redis.properties,
-		classpath:activeMQ.properties" />
+	<!--classpath:redis.properties,
+	classpath:activeMQ.properties-->
+	<context:property-placeholder location="classpath:jdbc.properties" />
 
 	<import resource="classpath:conf/shiro/spring-shiro.xml"/>
 	<import resource="classpath:conf/spring-mybatis.xml"/>
-	<import resource="classpath:conf/spring-ActiveMQ.xml"/>
-    <import resource="classpath:conf/spring-redis.xml"/>
+	<!--<import resource="classpath:conf/spring-ActiveMQ.xml"/>
+    <import resource="classpath:conf/spring-redis.xml"/>-->
 
 	<mvc:annotation-driven/>
 
@@ -39,6 +38,6 @@
 	<bean id="exceptionAspect" class="com.iris.annotation.ExceptionAspect"/>
 
 	<!-- redis缓存注解 -->
-	<bean id="redisAspect" class="com.iris.annotation.RedisAspect"/>
+	<!--<bean id="redisAspect" class="com.iris.annotation.RedisAspect"/>-->
 
 </beans>

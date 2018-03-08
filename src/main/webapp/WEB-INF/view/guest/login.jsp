@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="//unpkg.com/element-ui@1.3.6/lib/theme-default/index.css">
     <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/vue.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/login/login.js"></script>
-    <script type="text/javascript" src="element-ui/lib/index.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery-1.9.1.js"></script>
     <style>
     </style>

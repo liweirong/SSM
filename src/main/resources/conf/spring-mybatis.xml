@@ -70,7 +70,7 @@
 	<!-- spring与mybatis整合配置，扫描所有dao -->
 	<!-- 对Dao 接口动态实现，需要知道接口在哪  -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="com.ssm.dao" p:sqlSessionFactoryBeanName="sqlSessionFactory" />
+		p:basePackage="com.iris.dao" p:sqlSessionFactoryBeanName="sqlSessionFactory" />
 
 	<!-- 对数据源进行事务管理 -->
 	<bean id="transactionManager"

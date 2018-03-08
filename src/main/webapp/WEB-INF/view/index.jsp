@@ -12,7 +12,7 @@
 <p><a href="">游客页面</a></p>
 <p><a href="guest/login">登录页面</a></p>
 <p><a href="money/money">账单页面</a></p>
-<p><a href="activeMQTest">activeMq测试页面</a></p>
+<p><a href="http://localhost:8080/druid">数据库链接管理</a></p>
 </body>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/common/jquery-1.12.1.min.js"></script>
 <script type="text/javascript">

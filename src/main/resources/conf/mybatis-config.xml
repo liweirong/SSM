@@ -6,7 +6,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <!-- 命名空间 -->
     <typeAliases>
          <typeAlias alias="User" type="com.iris.model.User"/>
-        <!--<typeAlias alias="SysUser" type="com.iris.model.SysUser"/>-->
     </typeAliases>
 
     <!-- 映射map -->

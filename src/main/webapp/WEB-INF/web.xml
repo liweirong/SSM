@@ -108,20 +108,20 @@
 		<url-pattern>/druid/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- 错误跳转页面 -->
-	<error-page>
-		<!-- 路径不正确 -->
+	<!-- 错误跳转页面 注释方便调试-->
+<!--	<error-page>
+		&lt;!&ndash; 路径不正确 &ndash;&gt;
 		<error-code>404</error-code>
 		<location>/WEB-INF/view/errorpage/404.jsp</location>
 	</error-page>
 	<error-page>
-		<!-- 没有访问权限，访问被禁止 -->
+		&lt;!&ndash; 没有访问权限，访问被禁止 &ndash;&gt;
 		<error-code>405</error-code>
 		<location>/WEB-INF/view/errorpage/405.jsp</location>
 	</error-page>
 	<error-page>
-		<!-- 内部错误 -->
+		&lt;!&ndash; 内部错误 &ndash;&gt;
 		<error-code>500</error-code>
 		<location>/WEB-INF/view/errorpage/500.jsp</location>
-	</error-page>
+	</error-page>-->
 </web-app>
