@@ -10,8 +10,6 @@
 │   │   │   │   ├── dao                  // interface 层
 │   │   │   │   ├── mapper               // mybatis的 xml 层
 │   │   │   │   ├── model                // 实体类
-│   │   │   │   ├── mq                   // activeMQ相关实现（ topic 和 queue ）
-│   │   │   │   ├── redis                // redis相关
 │   │   │   │   ├── service              // service接口层
 │   │   │   │   │   ├── impl             // service接口的实现层
 │   │   │   │   ├── shiro                // 采用shiro，实现用户的登录与权限控制等

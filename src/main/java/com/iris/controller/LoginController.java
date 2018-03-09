@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,6 +39,45 @@ public class LoginController extends BaseController{
         LOG.info("进入login");
         return "login/login";
     }
+
+    @Log("进入index")
+    @RequestMapping(value = "/toIndex", method = RequestMethod.GET)
+    public Object toIndex(ModelAndView modelAndView ,String username,String password) {
+        if (StringUtils.isBlank(username)) {
+            modelAndView.setViewName("login/login");
+            return renderError("用户名不能为空");
+        }
+        if (StringUtils.isBlank(password)) {
+            return renderError("密码不能为空");
+        }
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+
+        try {
+            subject.login(token);
+        } catch (UnknownAccountException e) {
+            logger.error("账号不存在：{}", e);
+            return renderError("账号不存在");
+        } catch (DisabledAccountException e) {
+            logger.error("账号未启用：{}", e);
+            return renderError("账号未启用");
+        } catch (IncorrectCredentialsException e) {
+            logger.error("密码错误：{}", e);
+            return renderError("密码错误");
+        } catch (ExcessiveAttemptsException e) {
+            logger.error("登录失败多次，账户锁定：{}", e);
+            return renderError("登录失败多次，账户锁定10分钟");
+        } catch (RuntimeException e) {
+            logger.error("未知错误,请联系管理员：{}", e);
+            return renderError("未知错误,请联系管理员");
+        }
+        User user = userService.findUserByUserName(username);
+
+        subject.getSession().setAttribute(ConstantVar.LOGIN_USER, user);
+        LOG.info("进入index");
+        return "index";
+    }
+
     @Log("进入index")
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {

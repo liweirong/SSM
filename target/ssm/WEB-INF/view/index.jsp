@@ -8,6 +8,7 @@
 <body>
 <p><span>requestHashCode = </span><span id="requestHashCode"></span>
 <p><a href="">游客页面</a></p>
+<p><a href="/toLogin">登录</a></p>
 <p><a href="guest/login">登录页面</a></p>
 <p><a href="money/money">账单页面</a></p>
 <p><a href="http://localhost:8080/druid">数据库链接管理</a></p>
