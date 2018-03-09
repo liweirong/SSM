@@ -17,7 +17,7 @@
 	<!-- 引入jdbc配置文件 -->
 	<!--classpath:redis.properties,
 	classpath:activeMQ.properties-->
-	<context:property-placeholder location="classpath:jdbc.properties" />
+	<context:property-placeholder location="classpath:properties/jdbc.properties" />
 
 	<import resource="classpath:conf/shiro/spring-shiro.xml"/>
 	<import resource="classpath:conf/spring-mybatis.xml"/>

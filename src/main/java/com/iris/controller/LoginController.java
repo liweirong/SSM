@@ -32,6 +32,12 @@ public class LoginController extends BaseController{
     private UserService userService;
 
 
+    @Log("进入login")
+    @RequestMapping(value = "/toLogin", method = RequestMethod.GET)
+    public String toLogin(Model model) {
+        LOG.info("进入login");
+        return "login/login";
+    }
     @Log("进入index")
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {

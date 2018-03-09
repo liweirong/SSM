@@ -33,6 +33,11 @@
 		</property>
 		<property name="filterChainDefinitions">
 			<value>
+			<!--
+				/guest/** = anon -> anon->所有人可以访问
+				/manage/** = authc ->	anthc用户登录才能访问
+				/authc/admin = roles[admin]  ->roles[admin]需要用户有admin权限
+			-->
 				/guest/** = anon
 				/manage/** = authc
 			</value>
