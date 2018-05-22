@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by jiangcaijun on 2017/3/29.
+ * Created by lwrong on 2018/3/29.
  */
 @Controller
 public class LoginController extends BaseController{
