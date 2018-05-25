@@ -4,6 +4,8 @@ import com.iris.model.UserMoneyDetail;
 import com.iris.model.UserMoneyDetailExample;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public interface UserMoneyDetailMapper {

@@ -1,6 +1,8 @@
 /**
  * Created by lwrong on 2018/3/7.
  */
+
+
 (function () {
     var ie = !!(window.attachEvent && !window.opera);
     var wk = /webkit\/(\d+)/i.test(navigator.userAgent) && (RegExp.$1 < 525);
@@ -23,12 +25,22 @@
             }, 0);
     };
 })();
-
-document.ready(function(){
 var outData = [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3];
 var inputData = [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3];
 var minValues = 2;  var minMonth =  2; var minValue = 2;
 var maxValues = 7; var maxMonth = 7; var maxValue = 182.2;
+$(function(){
+    $.ajax({
+        type: "POST",
+        url: "/money/searchAll",
+        data:data,
+        success: function(loginStatsJson){
+            debugger
+            var login = JSON.parse(loginStatsJson);
+            outData = [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3];
+        }});
+})
+document.ready(function(){
 // 基于准备好的dom，初始化echarts图表
 var myChart = echarts.init(document.getElementById('main'));
 
