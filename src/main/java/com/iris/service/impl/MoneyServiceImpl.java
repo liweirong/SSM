@@ -6,6 +6,7 @@ import com.iris.model.UserMoneyDetailExample;
 import com.iris.service.MoneyService;
 import com.iris.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ import java.util.List;
  * @author lwrong
  * Created by lwrong on 2018/5/25.
  */
+@Service(value="moneyService")
 public class MoneyServiceImpl implements MoneyService {
     @Autowired
     private UserMoneyDetailMapper userMoneyDetailMapper;

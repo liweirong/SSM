@@ -33,6 +33,11 @@ public class RegisterController extends  BaseController{
         return "guest/register";
     }
 
+    @RequestMapping(value = "/toRegister", method = RequestMethod.GET)
+    public String toRegister(Model model) {
+        return "login/register";
+    }
+
 
     @Log(value = "登录操作", entry = { "username=用户名" })
     @RequestMapping(value = "/guest/register", method = RequestMethod.POST)

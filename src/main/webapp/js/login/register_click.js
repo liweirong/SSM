@@ -1,18 +1,19 @@
 /**
- * Created by lwrong on 2018/3/9.
+ * Created by lwrong on 2018/5/31.
  */
+
 $(function () {
     //按钮单击时执行
-    $("#login-submit").click(function () {
+    $("#register-submit").click(function () {
         $.ajax({
             type: "POST",
-            url: "/guest/loginPost",
+            url: "/toIndex",
             data: {
                 username: $("#username").val(),
                 password: $("#password").val()
             },
-           success: function (data) {
-             alert("666")
+            success: function (data) {
+                alert("666")
             }
         });
     });

@@ -1,35 +1,35 @@
 package com.iris.controller;
 
+import com.google.gson.Gson;
 import com.iris.annotation.Log;
 import com.iris.model.UserMoneyDetail;
 import com.iris.service.MoneyService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.google.gson.Gson;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
-/**
+/*
+*
  * @author lwrong
  *         Created by lwrong on 2018/3/7.
- */
+*/
 @Controller
-@RequestMapping("money")
+@RequestMapping("/money")
 public class MoneyController extends BaseController {
     private static final Logger LOG = Logger.getLogger(MoneyController.class);
     @Autowired
-    @Qualifier("moneyService")
     private MoneyService moneyService;
 
     @Log("进入账单管理")
-    @RequestMapping(value = "money", method = RequestMethod.GET)
+    @RequestMapping(value = "/money", method = RequestMethod.GET)
     public String toMonery(Model model) {
         LOG.info("进入账单管理");
         return "/money/money";
