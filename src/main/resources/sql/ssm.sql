@@ -117,3 +117,22 @@ CREATE TABLE `user_money_detail` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------
+-- 用户消费细节
+-- --------
+DROP TABLE IF EXISTS `rent_manage_main`;
+CREATE TABLE `rent_manage_main` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `homeowner` varchar(100) DEFAULT NULL COMMENT '房东名称',
+  `rent` double(10,2) DEFAULT NULL COMMENT '房租 不含水电的费用',
+  `water_electric` double(10,2) DEFAULT NULL COMMENT '水电费总和',
+  `water` double(10,2) DEFAULT NULL COMMENT '水的吨数',
+  `electric` double(10,2) DEFAULT NULL COMMENT '电的度数',
+  `room_num` varchar(100) DEFAULT NULL COMMENT '住宿房间信息',
+  `user_id` int(20) DEFAULT NULL COMMENT '对应的用户id',
+  `user_name` varchar(255) DEFAULT NULL COMMENT '冗余的用户名',
+  `desc` varchar(255) DEFAULT NULL COMMENT '租房中的备注',
+  `state` int(2) DEFAULT NULL COMMENT '租房状态 0 -不在租 1 - 在租 ',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
