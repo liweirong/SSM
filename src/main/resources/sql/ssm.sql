@@ -118,7 +118,7 @@ CREATE TABLE `user_money_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------
--- 用户消费细节
+-- 用户租房模块主表
 -- --------
 DROP TABLE IF EXISTS `rent_manage_main`;
 CREATE TABLE `rent_manage_main` (
