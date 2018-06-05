@@ -14,8 +14,11 @@
 │   │   │   │   │   ├── impl             // service接口的实现层
 │   │   │   │   ├── shiro                // 采用shiro，实现用户的登录与权限控制等
 │   │   │   │   ├── utils                // 工具类，包括常量类（运用枚举）、获取ip地址、xss转义、序列化类等
-│   │   │   ├── resources                // 资源
-│   │   │   ├── webapps                 
+│   │   │   ├── resources                // 配置资源
+│   │   │   ├── webapps        
+│     │     │     │     ├── css // 样式
+│     │     │     │     ├── images // 图片
+│     │     │     │     ├── js // 存放js目录
 │   │   │   │   ├── WEB-INF             
 │   │   │   │   │   ├── view             //存放jsp目录
 │   │   │   │   │   ├── web.xml          
