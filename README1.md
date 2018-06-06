@@ -32,7 +32,7 @@
 下一步：用户管理模块，权限管理
 
 # 四、项目启动
-####1、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
-####2、修改后初始化数据库脚本 \resources\sql\ssm.sql
-####3、部署启动
+#### 1、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
+#### 2、修改后初始化数据库脚本 \resources\sql\ssm.sql
+#### 3、部署启动
 
