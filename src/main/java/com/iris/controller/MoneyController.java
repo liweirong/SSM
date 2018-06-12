@@ -38,7 +38,7 @@ public class MoneyController extends BaseController {
     @Log("得到所有账单信息")
     @ResponseBody
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
-    public ArrayList<UserMoneyDetail> listAll(Model model) {
+    public ArrayList<UserMoneyDetail> listAll() {
         ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, "2014", 0, 20);
         LOG.info("得到账单信息一个"+allUserMoneyList.size() +"条数据");
         return allUserMoneyList;

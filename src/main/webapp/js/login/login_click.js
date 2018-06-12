@@ -6,10 +6,10 @@ $(function () {
     $("#login-submit").click(function () {
         $.ajax({
             type: "POST",
-            url: "/guest/loginPost",
+            url: "/toIndex/"+$("#username").val()+"/"+$("#username").val(),
             data: {
-                username: $("#username").val(),
-                password: $("#password").val()
+              /*  username: $("#username").val(),
+                password: $("#password").val()*/
             },
            success: function (data) {
              alert("666")

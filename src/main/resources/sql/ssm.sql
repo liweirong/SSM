@@ -110,7 +110,7 @@ CREATE TABLE `user_money_detail` (
   `MONEY` double(10,0) DEFAULT NULL COMMENT '支出或收入的钱（元）',
   `TYPE` varchar(50) DEFAULT NULL COMMENT '花费类型，后期根据此进行统计',
   `MONEY_STATUS` int(2) DEFAULT NULL COMMENT '判断是否是收入还是支出, 1支出，2 收入',
-  `DESC` varchar(250) DEFAULT NULL COMMENT '对此条记录的备注',
+  `DESCRIBE` varchar(250) DEFAULT NULL COMMENT '对此条记录的备注',
   `CREATE_DATE` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '录入系统时间',
   `MAKE_DATE` datetime DEFAULT NULL COMMENT '实际花费或入账的时间',
   `DELETE` int(2) DEFAULT '0' COMMENT '删除数据时进行标记，0代表未删除，1代表删除',
@@ -131,7 +131,7 @@ CREATE TABLE `rent_manage_main` (
   `room_num` varchar(100) DEFAULT NULL COMMENT '住宿房间信息',
   `user_id` int(20) DEFAULT NULL COMMENT '对应的用户id',
   `user_name` varchar(255) DEFAULT NULL COMMENT '冗余的用户名',
-  `desc` varchar(255) DEFAULT NULL COMMENT '租房中的备注',
+  `describe` varchar(255) DEFAULT NULL COMMENT '租房中的备注',
   `state` int(2) DEFAULT NULL COMMENT '租房状态 0 -不在租 1 - 在租 ',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

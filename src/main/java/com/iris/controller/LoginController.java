@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,8 +42,8 @@ public class LoginController extends BaseController{
     }
 
     @Log("进入index")
-    @RequestMapping(value = "/toIndex", method = RequestMethod.GET)
-    public Object toIndex(ModelAndView modelAndView ,String username,String password) {
+    @RequestMapping(value = "/toIndex/{username}/{password}", method = RequestMethod.GET)
+    public Object toIndex(ModelAndView modelAndView ,@PathVariable("username")String username,@PathVariable("password")String password) {
         if (StringUtils.isBlank(username)) {
             modelAndView.setViewName("login/login");
             return renderError("用户名不能为空");
@@ -52,7 +53,6 @@ public class LoginController extends BaseController{
         }
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-
         try {
             subject.login(token);
         } catch (UnknownAccountException e) {
@@ -105,44 +105,15 @@ public class LoginController extends BaseController{
      */
     @RequestMapping(value = "/guest/login", method = RequestMethod.GET)
     public String login(Model model) {
-        return "guest/login";
+        return "index";
     }
 
     @Log(value = "登录操作", entry = { "username=用户名" })
-    @RequestMapping(value = "/guest/loginPost", method = RequestMethod.POST)
+    @RequestMapping(value = "/guest/loginPost.lwr", method = RequestMethod.POST)
     @ResponseBody
     public Object loginPost(String username, String password) {
 
-        if (StringUtils.isBlank(username)) {
-            return renderError("用户名不能为空");
-        }
-        if (StringUtils.isBlank(password)) {
-            return renderError("密码不能为空");
-        }
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 
-        try {
-            subject.login(token);
-        } catch (UnknownAccountException e) {
-            logger.error("账号不存在：{}", e);
-            return renderError("账号不存在");
-        } catch (DisabledAccountException e) {
-            logger.error("账号未启用：{}", e);
-            return renderError("账号未启用");
-        } catch (IncorrectCredentialsException e) {
-            logger.error("密码错误：{}", e);
-            return renderError("密码错误");
-        } catch (ExcessiveAttemptsException e) {
-            logger.error("登录失败多次，账户锁定：{}", e);
-            return renderError("登录失败多次，账户锁定10分钟");
-        } catch (RuntimeException e) {
-            logger.error("未知错误,请联系管理员：{}", e);
-            return renderError("未知错误,请联系管理员");
-        }
-        User user = userService.findUserByUserName(username);
-
-        subject.getSession().setAttribute(ConstantVar.LOGIN_USER, user);
         return renderSuccess("登录成功");
     }
 

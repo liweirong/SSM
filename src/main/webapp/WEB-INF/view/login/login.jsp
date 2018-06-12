@@ -34,7 +34,7 @@
         <form class ="form-signin">
             <input type="username" class="ggg" name="username" placeholder="USERNAME" required autofocus>
             <input type="password" class="ggg" name="password" placeholder="PASSWORD" required="">
-            <span><input type="checkbox" />Remember Me</span>
+            <span><input  name="checkbox" type="checkbox" />Remember Me</span>
             <h6><a href="#">Forgot Password?</a></h6>
             <div class="clearfix"></div>
             <button id="login-submit" class="btn btn-lg btn-primary btn-block" style="background: #f0bcb4;color: white;border: none;outline: none;display: table; cursor: pointer;margin: 45px auto 31px;" type="submit">Sign In</button>

@@ -43,6 +43,6 @@ public class DateUtils {
 		calendar.add(Calendar.DAY_OF_MONTH, -1);
 		Date lastDay = calendar.getTime();
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-		return sd.format(lastDay + " 23:59:59");
+		return sd.format(lastDay)+ " 23:59:59";
 	}
 }
