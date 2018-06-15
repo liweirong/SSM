@@ -3,7 +3,7 @@
 * 开发环境：IDEA、Tomcat8.5
 * 系统 linux 
 * 数据库：MySql
-* 前端主要使用Bootstrap以及JQuery，后端基于SpringMVC、Spring、MyBatis进行开发，使用Maven构建
+* 前端主要使用Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis进行开发，使用Maven构建
 
 #一、项目设计想法
 
@@ -32,11 +32,14 @@
 * **积分管理** 对应礼物、娱乐系统，互动加积分
 
 # 三、项目进度
-* 先写后台接口，后期找到合适的前台框架再做前端部分
+* 先写后台接口，后期找到合适的前台框架再做前端部分（先用jquery和一些网页模板）
 登录注册页面的大概制作   ✔ 
-接口的完善及调试 ✖
+接口的完善及调试 ✖   （junit单元测试）
 管理员登录页面  ✖
 下一步：用户管理模块，权限管理
+
+
+* 还未考虑好的：针对后期数据可能集成elasticsearch ，redis等针对大数据量的数据库
 
 # 四、项目启动
 #### 1、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
