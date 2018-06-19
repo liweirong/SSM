@@ -110,10 +110,10 @@ CREATE TABLE `user_money_detail` (
   `MONEY` double(10,0) DEFAULT NULL COMMENT '支出或收入的钱（元）',
   `TYPE` varchar(50) DEFAULT NULL COMMENT '花费类型，后期根据此进行统计',
   `MONEY_STATUS` int(2) DEFAULT NULL COMMENT '判断是否是收入还是支出, 1支出，2 收入',
-  `DESCRIBE` varchar(250) DEFAULT NULL COMMENT '对此条记录的备注',
+  `DES` varchar(250) DEFAULT NULL COMMENT '对此条记录的备注',
   `CREATE_DATE` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '录入系统时间',
   `MAKE_DATE` datetime DEFAULT NULL COMMENT '实际花费或入账的时间',
-  `DELETE` int(2) DEFAULT '0' COMMENT '删除数据时进行标记，0代表未删除，1代表删除',
+  `DELETE_STATE` int(2) DEFAULT '0' COMMENT '删除数据时进行标记，0代表未删除，1代表删除',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
