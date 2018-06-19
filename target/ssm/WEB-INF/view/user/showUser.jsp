@@ -5,7 +5,7 @@
 </head>
 <body>
 <div>
-    <p>我是登录后的个人信息页面</p><a class="logout" href="#" style="color: red">退出登录</a>
+    <p>我是登录后的个人信息页面</p><a class="logout" href="/logout" style="color: red">退出登录</a>
     <p>我是user请求过来的ajax:</p>
     <p>用户名：<span class="ajaxPOJO4userName"></span></p>
     <p>密码：<span class="ajaxPOJO4passWord"></span></p>

@@ -6,14 +6,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
+<span> 已经弄好的接口</span>
 <p><span>requestHashCode = </span><span id="requestHashCode"></span>
 <p><a href="">游客页面</a></p>
 <p><a href="/toLogin">登录</a></p>
-<p><a href="guest/login">登录页面</a></p>
-<p><a href="money/money">账单页面</a></p>
-<p><a href="http://localhost:8080/druid">数据库链接管理</a></p>
-
-
+<p><a href="/guest/login">登录页面</a></p>
+<p><a href="/testPOJO">testPOJO</a></p>
+<p><a href="/user">用户管理</a></p>
+<p><a href="/toIndex/admin/admin">登录的resultful：/toIndex/admin/admin </a></p>
+<p><a href="/druid">数据库链接管理</a></p>
+---------------------------------------------------------
+<span style="color:red;"> 有问题的接口</span>
+<p><a href="/money/money">账单页面</a></p>
+---------------------------------------------------------
 </body>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/common/jquery-1.12.1.min.js"></script>
 <script type="text/javascript">
