@@ -22,6 +22,17 @@ public interface MoneyService {
 	ArrayList<UserMoneyDetail> findAllUserMoneyByUserId(Long userId, String year, Integer start, Integer limit);
 
 	/**
+	 * 通过年份月份查询到用户所有的数据，做月度报表展示用
+	 * @param userId
+	 * @param year
+	 * @param month
+	 * @param start
+	 * @param limit
+     * @return
+     */
+	ArrayList<UserMoneyDetail> findUserMonthMoneyByUserId(Long userId, String year,String month, Integer start, Integer limit);
+
+	/**
 	 * 通过前台输入的时间查询某一时间段的数据
 	 * @param userId 用户id
 	 * @param moneyTypes 用户查询的类型 【数组】

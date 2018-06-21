@@ -34,6 +34,28 @@ public class MoneyServiceImpl implements MoneyService {
         Date endDate = new Date();
         try {
             startDate = sd.parse(year + "-01-01");
+            endDate = sd.parse(year + "-12-31");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        createCriteria.andMakeDateBetween(startDate ,endDate);
+        createCriteria.andMoneyIsNotNull();
+        userMoneyDetailExample.setStart(start);
+        userMoneyDetailExample.setLimit(limit);
+        List<UserMoneyDetail> userMoneyDetails = userMoneyDetailMapper.selectByExample(userMoneyDetailExample);
+        return (ArrayList<UserMoneyDetail>) userMoneyDetails;
+    }
+
+    @Override
+    public ArrayList<UserMoneyDetail> findUserMonthMoneyByUserId(Long userId, String year,String month, Integer start, Integer limit){
+        UserMoneyDetailExample userMoneyDetailExample = new UserMoneyDetailExample();
+        UserMoneyDetailExample.Criteria createCriteria = userMoneyDetailExample.createCriteria();
+        createCriteria.andUserIdEqualTo(userId);
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        Date startDate = new Date();
+        Date endDate = new Date();
+        try {
+            startDate = sd.parse(year + "-" + (month.length() == 2 ? month : "0" + month) + "-01");
             String monthLastDay = DateUtils.getMonthLastDay(startDate);
             endDate = sd.parse(monthLastDay);
         } catch (ParseException e) {

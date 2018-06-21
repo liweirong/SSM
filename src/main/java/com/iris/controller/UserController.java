@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Date;
 
 @Controller
 //@RequestMapping("/manage/user")
@@ -91,8 +90,7 @@ public class UserController extends BaseController{
 	@RequestMapping(value = "/manager/getUser/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public Object getUser(Model model,@PathVariable("id")Long id) {
-		ArrayList<UserMoneyDetail> year = moneyService.findUserMoneyDetailByUserId(id, new ArrayList<String>(), new Date(), new Date(), 0, 10);
-		//ArrayList<UserMoneyDetail> user = moneyService.findAllUserMoneyByUserId(id,"2018",0,10);
-		return year;
+		ArrayList<UserMoneyDetail> user = moneyService.findAllUserMoneyByUserId(id,"2018",0,10);
+		return user;
 	}
 }

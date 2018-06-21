@@ -38,5 +38,15 @@ public class MoneyServiceImplTest extends BaseControllerTest {
         Integer limit = 15;
         ArrayList<UserMoneyDetail> lisy =  moneyService.findUserMoneyDetailByUserId(userId,list,startTime,endTime ,start,limit);
         System.out.println(lisy.size());
-    }
+    } //成功
+    @Test
+    public void testFindUserMonthMoneyDetailByUserId() throws Exception {
+        Long userId = 1L;
+        String year = "2018";
+        String month = "01";
+        Integer start = 0;
+        Integer limit = 15;
+        ArrayList<UserMoneyDetail> list = moneyService.findUserMonthMoneyByUserId(userId,  year, month, start,  limit);
+        System.out.println(list.size());
+    }//成功
 }
