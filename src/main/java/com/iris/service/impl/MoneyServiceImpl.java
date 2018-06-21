@@ -20,6 +20,7 @@ import java.util.List;
  */
 @Service(value="moneyService")
 public class MoneyServiceImpl implements MoneyService {
+
     @Autowired
     private UserMoneyDetailMapper userMoneyDetailMapper;
 
@@ -52,7 +53,9 @@ public class MoneyServiceImpl implements MoneyService {
         UserMoneyDetailExample.Criteria createCriteria = userMoneyDetailExample.createCriteria();
         createCriteria.andUserIdEqualTo(userId);
         createCriteria.andMakeDateBetween(startDate ,endDate);
-        createCriteria.andTypeIn(moneyTypes);
+        if(moneyTypes.size() > 0){
+            createCriteria.andTypeIn(moneyTypes);
+        }
         createCriteria.andMoneyIsNotNull();
         userMoneyDetailExample.setStart(start);
         userMoneyDetailExample.setLimit(limit);

@@ -20,3 +20,10 @@ bug记录
 **解决方案**: 1首先确保xml中的namespace配置是你的接口全类名，而不是包名！<mapper namespace="com.iris.dao.UserMoneyDetailMapper">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 确认dao接口中的方法，和xml中一一对应，返回类型，参数都正确。
 ** *************************************************************************************************************************** ** ***************************************************************************************************************************    
+**序号**: 3 
+**时间**: 2018/6/21
+**步骤**: junit测试 MoneyserviceImpl.FindAllUserMoneyByUserId
+**结果**: java.lang.NoClassDefFoundError: javax/servlet/SessionCookieConfig
+           at org.springframework.test.context.web.AbstractGenericWebContextLoader.configureWebResources(AbstractGenericWebContextLoader.java:182) 
+**错误原因**: Spring4 与 的兼容性问题
+**解决方案**: 添加相关的jar包 geronimo-servlet_3.0_spec
