@@ -136,3 +136,22 @@ CREATE TABLE `rent_manage_main` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+-- --------
+-- 用户电影模块主表
+-- --------
+DROP TABLE IF EXISTS `movie_manager`;
+CREATE TABLE `movie_manager` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `USER_ID` bigint(8) DEFAULT NULL,
+  `MOVIE_NAME` varchar(50) DEFAULT NULL COMMENT '电影名称',
+  `ADDRESS` varchar(50) DEFAULT NULL COMMENT '影城地址及座位',
+  `MOVIE_TICKET` double(8,2) DEFAULT NULL COMMENT '电影票的价钱',
+  `DES` varchar(5000) DEFAULT NULL COMMENT '电影的描描述',
+  `MOVIE_IMAGE_ADDRESS` varchar(255) DEFAULT NULL COMMENT '电影票图片的位置或链接',
+  `TIME` datetime DEFAULT NULL COMMENT '上映时间',
+  `DEL_STATUS` int(2) DEFAULT NULL COMMENT '删除状态 0 -删除 1 - 可用',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
