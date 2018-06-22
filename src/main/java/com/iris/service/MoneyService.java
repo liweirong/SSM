@@ -43,4 +43,14 @@ public interface MoneyService {
      * @return
      */
 	ArrayList<UserMoneyDetail> findUserMoneyDetailByUserId(Long userId, List<String> moneyTypes , Date startDate, Date endDate, Integer start, Integer limit);
+
+	/**
+	 * 批量删除
+	 * @param ids id
+	 * @return
+     */
+	boolean deleteMoneyDetailById(Long userId,long[] ids);
+
+
+
 }

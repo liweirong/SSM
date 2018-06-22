@@ -84,4 +84,9 @@ public class MoneyServiceImpl implements MoneyService {
         List<UserMoneyDetail> userMoneyDetails = userMoneyDetailMapper.selectByExample(userMoneyDetailExample);
         return (ArrayList<UserMoneyDetail>) userMoneyDetails;
     }
+
+    @Override
+    public boolean deleteMoneyDetailById(Long userId, long[] ids) {
+        return false;
+    }
 }

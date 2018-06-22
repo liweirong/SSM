@@ -39,7 +39,7 @@ public class MoneyController extends BaseController {
     @ResponseBody
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
     public ArrayList<UserMoneyDetail> listAll() {
-        ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, "2014", 0, 20);
+        ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, "2018", 0, 20);
         LOG.info("得到账单信息一个"+allUserMoneyList.size() +"条数据");
         return allUserMoneyList;
     }
@@ -61,5 +61,18 @@ public class MoneyController extends BaseController {
             return parameter+"("+json+")";
         }
     }
+
+    @Log("得到所有账单信息")
+    @ResponseBody
+    @RequestMapping(value = "deleteMoneyDetailById", method = RequestMethod.DELETE)
+    public void deleteMoneyDetailById() {
+        long[] ids = {1L};
+        boolean result = moneyService.deleteMoneyDetailById(1L,ids);
+        if (result) {
+
+            LOG.info("成功删除条数据");
+        }
+    }
+
 
 }
