@@ -4,6 +4,7 @@
 * 系统 linux 
 * 数据库：MySql
 * 前端主要使用Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis进行开发，使用Maven构建
+* **项目管理地址：[Testin](https://www.testin.cn/realmachine/index.htm)**
 
 # 一、项目设计想法
 

@@ -139,8 +139,8 @@ CREATE TABLE `rent_manage_main` (
 -- --------
 -- 用户电影模块主表
 -- --------
-DROP TABLE IF EXISTS `movie_manager`;
-CREATE TABLE `movie_manager` (
+DROP TABLE IF EXISTS `user_movie_manager`;
+CREATE TABLE `user_movie_manager` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `USER_ID` bigint(8) DEFAULT NULL,
   `MOVIE_NAME` varchar(50) DEFAULT NULL COMMENT '电影名称',
