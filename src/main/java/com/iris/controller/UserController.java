@@ -2,7 +2,6 @@ package com.iris.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.iris.model.User;
-import com.iris.model.UserMoneyDetail;
 import com.iris.service.MoneyService;
 import com.iris.service.UserService;
 import org.apache.log4j.Logger;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 
 @Controller
 //@RequestMapping("/manage/user")
@@ -87,10 +85,14 @@ public class UserController extends BaseController{
 	 * @return String    返回类型
 	 * @throws
 	 */
-	@RequestMapping(value = "/manager/getUser/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/manager/getUserInfoById/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public Object getUser(Model model,@PathVariable("id")Long id) {
-		ArrayList<UserMoneyDetail> user = moneyService.findAllUserMoneyByUserId(id,"2018",0,10);
-		return user;
+	public User getUserInfoById(Model model,@PathVariable("id")Long id) {
+//		User user = userService.findUserInfoById(id);
+//		Integer start = 1;
+//		Integer limit = 10;
+//		List<User> list = userService.listAllUserInfoById(1,10);
+		return new User();
 	}
+
 }
