@@ -87,6 +87,31 @@ public class MoneyServiceImpl implements MoneyService {
 
     @Override
     public boolean deleteMoneyDetailById(Long userId, long[] ids) {
+        for (long id : ids) {
+            boolean check = checkStatus(userId, id);
+            if(check) {
+                int num = userMoneyDetailMapper.deleteByPrimaryKey(id);
+                if (num == 0) {
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 查询是否有可以删除
+     * @param userId
+     * @param id
+     * @return
+     */
+    private boolean checkStatus(Long userId, long id) {
+        UserMoneyDetail userMoneyDetail = userMoneyDetailMapper.selectByPrimaryKey(id);
+        if (userMoneyDetail != null && userMoneyDetail.getDelete() == 1) { // 可删除
+            return true;
+        }
         return false;
     }
 }

@@ -17,8 +17,16 @@ public class MoneyControllerTest extends BaseControllerTest {
 
     @Test
     public void testListAll() throws Exception {
-        ArrayList<UserMoneyDetail> userMoneyDetails = moneyController.listAll();
+        ArrayList<UserMoneyDetail> userMoneyDetails = moneyController.listAll("2018");
         System.out.println(userMoneyDetails.size());
+
+    }
+
+    @Test
+    public void testdelete() throws Exception {
+
+        Object userMoneyDetails = moneyController.deleteMoneyDetailById("1");
+        System.out.println(userMoneyDetails);
 
     }
 }

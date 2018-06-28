@@ -1,5 +1,6 @@
 package com.iris.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class UserMoneyDetail {
@@ -73,7 +74,7 @@ public class UserMoneyDetail {
      *
      * @mbg.generated Mon Jun 11 19:22:46 CST 2018
      */
-    private Date createDate;
+    private Timestamp createDate;
 
     /**
      *
@@ -82,7 +83,7 @@ public class UserMoneyDetail {
      *
      * @mbg.generated Mon Jun 11 19:22:46 CST 2018
      */
-    private Date makeDate;
+    private Timestamp makeDate;
 
     /**
      *
@@ -281,7 +282,7 @@ public class UserMoneyDetail {
      *
      * @mbg.generated Mon Jun 11 19:22:46 CST 2018
      */
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(Timestamp createDate) {
         this.createDate = createDate;
     }
 
@@ -305,7 +306,7 @@ public class UserMoneyDetail {
      *
      * @mbg.generated Mon Jun 11 19:22:46 CST 2018
      */
-    public void setMakeDate(Date makeDate) {
+    public void setMakeDate(Timestamp makeDate) {
         this.makeDate = makeDate;
     }
 

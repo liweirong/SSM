@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,7 +30,7 @@ public class MoneyController extends BaseController {
     private MoneyService moneyService;
 
     @Log("进入账单管理")
-    @RequestMapping(value = "/money", method = RequestMethod.GET)
+    @RequestMapping(value = "/money", method = RequestMethod.POST)
     public String toMonery(Model model) {
         LOG.info("进入账单管理");
         return "/money/money";
@@ -37,9 +38,9 @@ public class MoneyController extends BaseController {
 
     @Log("得到所有账单信息")
     @ResponseBody
-    @RequestMapping(value = "listAll", method = RequestMethod.GET)
-    public ArrayList<UserMoneyDetail> listAll() {
-        ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, "2018", 0, 20);
+    @RequestMapping(value = "listAll/{year}", method = RequestMethod.GET)
+    public ArrayList<UserMoneyDetail> listAll(@PathVariable("year")String year) {
+        ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, year, 0, 20);
         LOG.info("得到账单信息一个"+allUserMoneyList.size() +"条数据");
         return allUserMoneyList;
     }
@@ -62,16 +63,23 @@ public class MoneyController extends BaseController {
         }
     }
 
-    @Log("得到所有账单信息")
+    @Log("删除账单信息")
     @ResponseBody
-    @RequestMapping(value = "deleteMoneyDetailById", method = RequestMethod.DELETE)
-    public void deleteMoneyDetailById() {
-        long[] ids = {1L};
-        boolean result = moneyService.deleteMoneyDetailById(1L,ids);
-        if (result) {
-
-            LOG.info("成功删除条数据");
+    @RequestMapping(value = "deleteMoneyDetailById/{ids}", method = RequestMethod.DELETE)
+    public Object deleteMoneyDetailById(@PathVariable("ids")String ids) {
+        String[] idss = ids.split(",");
+        long[] idL = new long[idss.length];
+        for (int i = 0; i < idss.length; i++) {
+            idL[i] = Long.valueOf(idss[i]);
         }
+
+        boolean result = moneyService.deleteMoneyDetailById(1L, idL);
+        if (result) {
+            LOG.info("成功删除数据");
+            return renderSuccess("删除数据成功");
+        }
+        LOG.info("删除数据失败");
+        return renderError("删除数据失败");
     }
 
 

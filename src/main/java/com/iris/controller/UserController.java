@@ -33,7 +33,7 @@ public class UserController extends BaseController{
 
 	//最好是将@Resource放在setter方法上，因为这样更符合面向对象的思想，通过set、get去操作属性，而不是直接去操作属性。
 	@Resource(name="userService")
-	public void UserService(UserService userService) {
+	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
 

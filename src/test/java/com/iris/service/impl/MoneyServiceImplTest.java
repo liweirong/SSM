@@ -49,4 +49,11 @@ public class MoneyServiceImplTest extends BaseControllerTest {
         ArrayList<UserMoneyDetail> list = moneyService.findUserMonthMoneyByUserId(userId,  year, month, start,  limit);
         System.out.println(list.size());
     }//成功
+
+    @Test
+    public void testDeleteByUserId() throws Exception {
+        long[] ids = new long[]{2L};
+        boolean bool = moneyService.deleteMoneyDetailById(1L,ids);
+        System.out.println(bool);
+    }//成功
 }

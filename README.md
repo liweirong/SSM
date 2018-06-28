@@ -4,6 +4,7 @@
 * 系统 linux 
 * 数据库：MySql
 * 前端主要使用Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis进行开发，使用Maven构建
+* 三方服务： 邮件服务、阿里云短信服务、七牛云文件服务、钉钉机器人服务、高德地图API
 * **项目管理地址：[Testin](https://www.testin.cn/realmachine/index.htm)**
 
 # 一、项目设计想法
