@@ -7,6 +7,7 @@ import com.iris.service.MoneyService;
 import com.iris.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,16 +17,16 @@ import java.util.List;
 
 /**
  * @author lwrong
- * Created by lwrong on 2018/5/25.
+ *         Created by lwrong on 2018/5/25.
  */
-@Service(value="moneyService")
+@Service(value = "moneyService")
 public class MoneyServiceImpl implements MoneyService {
 
     @Autowired
     private UserMoneyDetailMapper userMoneyDetailMapper;
 
     @Override
-    public ArrayList<UserMoneyDetail> findAllUserMoneyByUserId(Long userId, String year, Integer start, Integer limit){
+    public ArrayList<UserMoneyDetail> findAllUserMoneyByUserId(Long userId, String year, Integer start, Integer limit) {
         UserMoneyDetailExample userMoneyDetailExample = new UserMoneyDetailExample();
         UserMoneyDetailExample.Criteria createCriteria = userMoneyDetailExample.createCriteria();
         createCriteria.andUserIdEqualTo(userId);
@@ -38,7 +39,7 @@ public class MoneyServiceImpl implements MoneyService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        createCriteria.andMakeDateBetween(startDate ,endDate);
+        createCriteria.andMakeDateBetween(startDate, endDate);
         createCriteria.andMoneyIsNotNull();
         userMoneyDetailExample.setStart(start);
         userMoneyDetailExample.setLimit(limit);
@@ -47,7 +48,7 @@ public class MoneyServiceImpl implements MoneyService {
     }
 
     @Override
-    public ArrayList<UserMoneyDetail> findUserMonthMoneyByUserId(Long userId, String year,String month, Integer start, Integer limit){
+    public ArrayList<UserMoneyDetail> findUserMonthMoneyByUserId(Long userId, String year, String month, Integer start, Integer limit) {
         UserMoneyDetailExample userMoneyDetailExample = new UserMoneyDetailExample();
         UserMoneyDetailExample.Criteria createCriteria = userMoneyDetailExample.createCriteria();
         createCriteria.andUserIdEqualTo(userId);
@@ -61,7 +62,7 @@ public class MoneyServiceImpl implements MoneyService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        createCriteria.andMakeDateBetween(startDate ,endDate);
+        createCriteria.andMakeDateBetween(startDate, endDate);
         createCriteria.andMoneyIsNotNull();
         userMoneyDetailExample.setStart(start);
         userMoneyDetailExample.setLimit(limit);
@@ -70,12 +71,12 @@ public class MoneyServiceImpl implements MoneyService {
     }
 
     @Override
-    public ArrayList<UserMoneyDetail> findUserMoneyDetailByUserId(Long userId, List<String> moneyTypes , Date startDate, Date endDate, Integer start, Integer limit){
+    public ArrayList<UserMoneyDetail> findUserMoneyDetailByUserId(Long userId, List<String> moneyTypes, Date startDate, Date endDate, Integer start, Integer limit) {
         UserMoneyDetailExample userMoneyDetailExample = new UserMoneyDetailExample();
         UserMoneyDetailExample.Criteria createCriteria = userMoneyDetailExample.createCriteria();
         createCriteria.andUserIdEqualTo(userId);
-        createCriteria.andMakeDateBetween(startDate ,endDate);
-        if(moneyTypes.size() > 0){
+        createCriteria.andMakeDateBetween(startDate, endDate);
+        if (moneyTypes.size() > 0) {
             createCriteria.andTypeIn(moneyTypes);
         }
         createCriteria.andMoneyIsNotNull();
@@ -89,20 +90,37 @@ public class MoneyServiceImpl implements MoneyService {
     public boolean deleteMoneyDetailById(Long userId, long[] ids) {
         for (long id : ids) {
             boolean check = checkStatus(userId, id);
-            if(check) {
+            if (check) {
                 int num = userMoneyDetailMapper.deleteByPrimaryKey(id);
                 if (num == 0) {
                     return false;
                 }
-            }else{
+            } else {
                 return false;
             }
         }
         return true;
     }
 
+    @Override
+    public boolean saveOrUpdateMoneyDetail(UserMoneyDetail userMoneyDetail) {
+        int key = 0;
+        if (null == userMoneyDetail.getId()) {
+            key = userMoneyDetailMapper.insertSelective(userMoneyDetail);
+        } else {
+            key = userMoneyDetailMapper.updateByPrimaryKeySelective(userMoneyDetail);
+        }
+        System.out.println(key);
+        if (key != 0) {
+            return true;
+        }
+        return false;
+    }
+
+
     /**
      * 查询是否有可以删除
+     *
      * @param userId
      * @param id
      * @return

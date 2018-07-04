@@ -2,6 +2,7 @@ package com.iris.controller;
 
 import com.google.gson.Gson;
 import com.iris.annotation.Log;
+import com.iris.model.SysUser;
 import com.iris.model.UserMoneyDetail;
 import com.iris.service.MoneyService;
 import org.apache.commons.lang3.StringUtils;
@@ -9,10 +10,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -82,5 +80,32 @@ public class MoneyController extends BaseController {
         return renderError("删除数据失败");
     }
 
+
+    @Log("更新账单信息")
+    @ResponseBody
+    @RequestMapping(value = "UpdateMoneyDetail", method = RequestMethod.POST)
+    public Object UpdateMoneyDetailById(@RequestBody String json, HttpServletRequest request) {
+        Gson gson = new Gson();
+        UserMoneyDetail userMoneyDetail = gson.fromJson(json, UserMoneyDetail.class);
+
+        boolean result = moneyService.saveOrUpdateMoneyDetail(userMoneyDetail);
+        if (result) {
+            LOG.info("成功更新数据");
+            return renderSuccess("成功更新数据");
+        }
+        LOG.info("更新数据失败");
+        return renderError("更新数据失败");
+    }
+
+    @RequestMapping("register")
+    public  String register(SysUser user, Model modal, HttpServletRequest request){
+        SysUser bossMsg = (SysUser)request.getSession().getAttribute("user");//登录存入session
+//        int i =  sysUserServiceImpl.addUserByBoss(user,bossMsg);
+//        if(i==1){//添加成功
+//            return "addUser";
+//        }
+
+        return "redirect:/product/list/1";
+    }
 
 }

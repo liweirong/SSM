@@ -93,7 +93,7 @@ CREATE TABLE `lev_score` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 初始化积分规则
-INSERT INTO `lev_score` (`ID`, `MIN_SCORE`, `MAX_SCORE`, `LEVEL`) VALUES ('1', '0', '100', '1');
+INSERT INTO `lev_score` (`ID`, `MIN_SCORE`, `MAX_SCORE`, `LEVEL`) VALUES ('1', '0', '80', '1');
 INSERT INTO `lev_score` (`ID`, `MIN_SCORE`, `MAX_SCORE`, `LEVEL`) VALUES ('2', '101', '300', '2');
 INSERT INTO `lev_score` (`ID`, `MIN_SCORE`, `MAX_SCORE`, `LEVEL`) VALUES ('3', '301', '900', '3');
 INSERT INTO `lev_score` (`ID`, `MIN_SCORE`, `MAX_SCORE`, `LEVEL`) VALUES ('4', '901', '1800', '4');
@@ -143,15 +143,33 @@ DROP TABLE IF EXISTS `user_movie_manager`;
 CREATE TABLE `user_movie_manager` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `USER_ID` bigint(8) DEFAULT NULL,
+  `ORDER_NUM` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '订单号',
   `MOVIE_NAME` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '电影名称',
+  `MOVIE_TYE` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '冗余的电影类型',
+  `MOVIE_TYPE_ID` int(3) DEFAULT '0' COMMENT '电影类型-电影类型表的id',
   `ADDRESS` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '影城地址及座位',
   `MOVIE_TICKET` double(8,2) DEFAULT NULL COMMENT '电影票的价钱',
+  `MOVIE_NUM` int(2) DEFAULT '1' COMMENT '电影票张数',
   `DES` varchar(5000) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '电影的描描述',
+  `MOVIE_SCORE` float(4,1) DEFAULT NULL COMMENT '电影评分',
   `MOVIE_IMAGE_ADDRESS` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '电影票图片的位置或链接',
-  `TIME` datetime DEFAULT NULL COMMENT '上映时间',
+  `TIME` datetime DEFAULT NULL COMMENT '上映时间-放映时间-观看时间',
   `DEL_STATUS` int(2) DEFAULT NULL COMMENT '删除状态 0 -删除 1 - 可用',
   PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- --------
+-- 电影类型映射表 MOVIE_TYPE_ID
+-- --------
+DROP TABLE IF EXISTS `movie_type`;
+CREATE TABLE `movie_type` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `MOVIE_TYPE` varchar(50) CHARACTER SET utf8mb4 DEFAULT '' COMMENT '电影类型，可扩展',
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `movie_type` (`ID`, `MOVIE_TYPE`) VALUES ('1', '科幻');
+INSERT INTO `movie_type` (`ID`, `MOVIE_TYPE`) VALUES ('2', '剧情');
+INSERT INTO `movie_type` (`ID`, `MOVIE_TYPE`) VALUES ('3', '战争');
 
 
 

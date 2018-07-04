@@ -52,5 +52,5 @@ public interface MoneyService {
 	boolean deleteMoneyDetailById(Long userId,long[] ids);
 
 
-
+	boolean saveOrUpdateMoneyDetail(UserMoneyDetail userMoneyDetail);
 }
