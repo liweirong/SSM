@@ -1,9 +1,9 @@
 彩虹系统
 ====
-* 开发环境：IDEA、Tomcat8.5
-* 系统 linux 
-* 数据库：MySql
-* 前端主要使用vue.js、Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis进行开发，使用Maven构建
+* 开发环境：IDEA、Tomcat8.5、jdk1.8、mysql5.6
+* 系统 linux centos7.1
+* 数据库：MySql、elasticsearch、redis
+* 前端主要使用vue.js、Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis、shiro进行开发，使用Maven构建
 （如果采用vue.js则采用前后端分离，目前系统作为后端系统，前端系统另拉分支）
 * 三方服务： 邮件服务、阿里云短信服务、七牛云文件服务、钉钉机器人服务、高德地图API
 * **项目管理地址：[Testin](https://www.testin.cn/realmachine/index.htm)**
@@ -28,9 +28,9 @@
 * **日程管理** 自定义节日、法定节假日的提醒及推荐 - 邮件、短信提醒
 * **好友动态** 互动
 ### 2.后台管理
-* **日志管理** 
+* **日志管理** 主要针对敏感数据及危及系统的操作
 * **数据维护** 导入及导出，备份，脱敏，加密
-* **权限管理** 维护好管理员和用户
+* **权限管理** 维护好管理员和用户的功能
 * **反馈板块** 搜集系统不好的地方改进
 * **用户管理** 维护客户关系，在线人数统计
 * **积分管理** 对应礼物、娱乐系统，互动加积分
@@ -43,7 +43,7 @@
 
 * 前段部分
 vue环境的部署  ✔
-vue的学习 --前段项目小demo
+vue的学习 --前段项目小demo ✔
 vue搭建前端系统
 登录注册页面
 管理员登录页面  
