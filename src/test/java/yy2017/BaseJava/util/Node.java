@@ -2,7 +2,7 @@ package yy2017.BaseJava.util;
 
 /**
 * @Description: 参考链接:http://www.bianceng.cn/Programming/sjjg/201407/42457.htm
-* @author jiangcaijun
+* @author lwrong
 * @date 2017年1月8日 下午5:33:40 
 */
 public class Node {

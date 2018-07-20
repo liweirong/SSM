@@ -4,7 +4,7 @@ package yy2017.mm01.singleton;
 /**
 * @Description: 单例模式
 * 				参考网址;http://www.cnblogs.com/whgw/archive/2011/10/05/2199535.html
-* @author jiangcaijun
+* @author lwrong
 * @date 2016年12月29日 上午10:44:24 
 */
 public class TestStream {

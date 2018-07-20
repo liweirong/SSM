@@ -1,7 +1,7 @@
 package cn.test.dao.Test4jdk;
 
 /**
- * Created by jiangcaijun on 2017/6/11.
+ * Created by lwrong on 2017/6/11.
  */
 public class MyNode
 {

@@ -3,7 +3,7 @@ package yy2017.mm01.sort;
 /**
 * @Description: 直接插入排序，时间复杂度O(n2) 
 * 				参考网址：http://www.cnblogs.com/fanyong/archive/2012/03/23/2413553.html
-* @author jiangcaijun
+* @author lwrong
 * @date 2017年1月4日 下午3:40:28 
 */
 public class insertSort {

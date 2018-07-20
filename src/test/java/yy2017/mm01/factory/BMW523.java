@@ -2,7 +2,7 @@ package yy2017.mm01.factory;
 
 /**
 * @Description: 同BMW320
-* @author jiangcaijun
+* @author lwrong
 * @date 2017年1月2日 下午3:44:32 
 */
 public class BMW523 implements BMW {

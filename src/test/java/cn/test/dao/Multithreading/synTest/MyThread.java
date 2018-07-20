@@ -3,7 +3,7 @@ package cn.test.dao.Multithreading.synTest;
 import org.junit.Test;
 
 /**
- * Created by jiangcaijun on 2017/5/26.
+ * Created by lwrong on 2017/5/26.
  */
 public class MyThread extends Thread {
     @Override

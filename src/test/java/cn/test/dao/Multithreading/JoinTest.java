@@ -1,7 +1,7 @@
 package cn.test.dao.Multithreading;
 
 /**
- * Created by jiangcaijun on 2017/5/25.
+ * Created by lwrong on 2017/5/25.
  * 参考链接：http://www.cnblogs.com/jfqiu/p/3264045.html
  * t1、t2线程并行
  */

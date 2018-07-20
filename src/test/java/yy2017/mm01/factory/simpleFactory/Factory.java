@@ -7,7 +7,7 @@ import yy2017.mm01.factory.BMW523;
 
 /**
 * @Description: 简单工厂模式：工厂类，这是本模式的核心，含有一定的商业逻辑和判断逻辑，用来创建产品
-* @author jiangcaijun
+* @author lwrong
 * @date 2017年1月2日 下午3:31:30 
 */
 public class Factory {

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by jiangcaijun on 2017/6/11.
+ * Created by lwrong on 2017/6/11.
  */
 public class CustomArrayList{
     List list = new ArrayList();

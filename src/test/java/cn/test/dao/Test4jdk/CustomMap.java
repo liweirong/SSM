@@ -1,7 +1,7 @@
 package cn.test.dao.Test4jdk;
 
 /**
- * Created by jiangcaijun on 2017/6/8.
+ * Created by lwrong on 2017/6/8.
  * 定义一个map的接口
  */
 public interface CustomMap<K,V> {

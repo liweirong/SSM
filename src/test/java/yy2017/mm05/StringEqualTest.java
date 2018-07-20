@@ -1,7 +1,7 @@
 package yy2017.mm05;
 
 /**
- * Created by jiangcaijun on 2017/5/30.
+ * Created by lwrong on 2017/5/30.
  */
 public class StringEqualTest {
     public static void main(String[] args) {

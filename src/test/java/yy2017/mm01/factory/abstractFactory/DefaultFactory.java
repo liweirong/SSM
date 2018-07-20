@@ -6,7 +6,7 @@ import yy2017.mm01.factory.BMW523;
 
 /**
 * @Description: 抽象工厂模式：具体工厂类
-* @author jiangcaijun
+* @author lwrong
 * @date 2017年1月2日 下午4:09:45 
 */
 public class DefaultFactory extends Factory{

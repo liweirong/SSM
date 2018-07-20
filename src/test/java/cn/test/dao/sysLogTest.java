@@ -12,7 +12,7 @@ import java.net.DatagramSocket;
 * 明文密码+私钥(privateKey)加密=加密密码
 * 
 * 加密密码+公钥(publicKey)解密=明文密码
-* @author jiangcaijun
+* @author lwrong
 * @date 2016年12月16日 下午3:49:35 
 */
 public class sysLogTest {

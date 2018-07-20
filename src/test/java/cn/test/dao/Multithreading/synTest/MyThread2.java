@@ -1,7 +1,7 @@
 package cn.test.dao.Multithreading.synTest;
 
 /**
- * Created by jiangcaijun on 2017/5/26.
+ * Created by lwrong on 2017/5/26.
  */
 public class MyThread2 extends Thread {
     private Counter counter;

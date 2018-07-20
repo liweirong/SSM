@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * 统一返回类接口
- * @Autor jiangcaijun
+ * @Autor lwrong
  * @Date 2017/11/9
  * @Time 10:21
  */

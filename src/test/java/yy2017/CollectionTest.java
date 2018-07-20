@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * Created by jiangcaijun on 2017/2/15.
+ * Created by lwrong on 2017/2/15.
  */
 public class CollectionTest {
     public static void testPerformance() {

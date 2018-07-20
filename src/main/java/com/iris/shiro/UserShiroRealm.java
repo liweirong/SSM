@@ -71,7 +71,7 @@ public class UserShiroRealm extends AuthorizingRealm {
     /**
      * 清除权限的缓存,但该方法执行后，前端页面的刷新会略有延迟，这是缓存造成的
      * 
-     * @author jiangCaiJun
+     * @author lwrong
      */
     public void updateAuthz(Long roleId){
         Set<String> urlSet = new HashSet<String>();

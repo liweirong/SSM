@@ -3,7 +3,7 @@ package yy2017.BaseJava.util;
 
 /**
 * @Description: TODO(这里用一句话描述这个类的作用)
-* @author jiangcaijun
+* @author lwrong
 * @date 2017年1月8日 下午5:39:32 
 */
 public class LinkedList {

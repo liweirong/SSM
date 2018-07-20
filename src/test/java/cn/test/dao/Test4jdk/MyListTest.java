@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by jiangcaijun on 2017/6/11.
+ * Created by lwrong on 2017/6/11.
  */
 public class MyListTest {
     public static void main(String[] args)

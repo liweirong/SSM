@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * Created by jiangcaijun on 2017/5/25.
+ * Created by lwrong on 2017/5/25.
  * 关键词：lock
  * 备注： lock接口在多线程和并发编程中最大的优势是它们为读和写分别提供了锁
  * 参考链接：http://blog.csdn.net/ghsau/article/details/7461369/

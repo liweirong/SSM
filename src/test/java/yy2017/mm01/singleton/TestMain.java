@@ -3,7 +3,7 @@ package yy2017.mm01.singleton;
 
 /**
 * @Description: 对单例模式TestStream的测试
-* @author jiangcaijun
+* @author lwrong
 * @date 2016年12月29日 上午10:45:01 
 */
 public class TestMain {

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by jiangcaijun on 2017/6/8.
+ * Created by lwrong on 2017/6/8.
  * 定义一个customMap的实现类
  */
 public class CustomHashMap<K,V> implements CustomMap<K,V> {

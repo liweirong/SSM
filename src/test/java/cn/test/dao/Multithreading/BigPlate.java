@@ -5,7 +5,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * Created by jiangcaijun on 2017/5/25.
+ * Created by lwrong on 2017/5/25.
  * 利用阻塞队列BlockingQueue实现消费者和生产者
  * 定义一个盘子类，可以放鸡蛋和取鸡蛋
  * 参考链接：http://blog.csdn.net/ghsau/article/details/8108292

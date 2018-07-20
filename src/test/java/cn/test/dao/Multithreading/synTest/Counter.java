@@ -1,7 +1,7 @@
 package cn.test.dao.Multithreading.synTest;
 
 /**
- * Created by jiangcaijun on 2017/5/26.
+ * Created by lwrong on 2017/5/26.
  */
 public class Counter implements Runnable {
     private int count = 0;

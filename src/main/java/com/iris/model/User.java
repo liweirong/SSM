@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
 * @Description: 用户表
-* @author jiangcaijun
+* @author lwrong
 * @date 2016年12月15日 下午5:37:51 
 */
 @Data

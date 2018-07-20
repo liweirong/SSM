@@ -4,7 +4,7 @@ import yy2017.mm01.factory.BMW;
 
 /**
 * @Description: 简单工厂模式：客户类
-* @author jiangcaijun
+* @author lwrong
 * @date 2017年1月2日 下午3:42:35 
 */
 public class Customer {

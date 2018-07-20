@@ -12,7 +12,7 @@ import java.security.MessageDigest;
 /**
  * 文件内容修改，md5值将会改变；文件名修改（包括后缀），MD5不会变
  * 
- * @author jiangCaiJun
+ * @author lwrong
  * 
  */
 public class md5 {

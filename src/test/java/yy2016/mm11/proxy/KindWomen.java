@@ -8,7 +8,7 @@ package yy2016.mm11.proxy;
  *
  * 定义一种类型的女人，王婆和潘金莲都属于这个类型的女人
  * 
- * @author jiangCaiJun
+ * @author lwrong
  *
  */
 public interface KindWomen {

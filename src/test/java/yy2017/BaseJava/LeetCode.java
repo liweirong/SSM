@@ -10,7 +10,7 @@ import yy2017.BaseJava.util.ListNode;
 
 /**
  * @Description: LeetCode刷题
- * @author jiangcaijun
+ * @author lwrong
  * @date 2017年1月3日 下午2:43:26
  */
 public class LeetCode {
