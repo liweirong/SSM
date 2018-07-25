@@ -52,7 +52,36 @@ vue搭建前端系统
 
 * 还未考虑好的：针对后期数据可能集成elasticsearch 等针对大数据量的数据库（用户量大的情况），接入其他缓存服务器redis等
 
-# 四、项目启动
+# 四、目录结构
+```
+├── ssm
+│   ├── src                  
+│   │   ├── main                
+│   │   │   ├── java/com/iris             
+│   │   │   │   ├── annotation           // 自定义注解等
+│   │   │   │   ├── controller           // 控制层
+│   │   │   │   ├── dao                  // dao接口层
+│   │   │   │   ├── mapper               // mybatis的 xml 层
+│   │   │   │   ├── model                // 实体类
+│   │   │   │   ├── service              // service接口层
+│   │   │   │   │   ├── impl          // service接口的实现层
+│   │   │   │   ├── shiro                // 采用shiro，实现用户的登录与权限控制等
+│   │   │   │   ├── utils                // 工具类，包括常量类（运用枚举）、获取ip地址、xss转义、序列化类等
+│   │   │   ├── resources                   // 配置资源
+│   │   │   ├── webapps        
+│     │     │     │     ├── css // 样式
+│     │     │     │     ├── images // 图片
+│     │     │     │     ├── js // 存放js目录
+│   │   │   │   ├── WEB-INF             
+│   │   │   │   │   ├── view          //存放jsp目录
+│   │   │   │   │   ├── web.xml          
+│   │   │   │   ├── static               // 静态资源
+│   │   ├── test                               // junit单元测试
+│   └── pom.xml                                   //maven管理的 pom 文件
+│   └── README.md
+```
+
+# 五、项目检出启动
 #### 1、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
 #### 2、修改后初始化数据库脚本 \resources\sql\ssm.sql
 #### 3、部署启动
