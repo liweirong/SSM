@@ -151,7 +151,7 @@ CREATE TABLE `user_movie_manager` (
   `movie_ticket` double(8,2) DEFAULT NULL COMMENT '电影票的价钱',
   `movie_num` int(2) DEFAULT '1' COMMENT '电影票张数',
   `des` varchar(5000) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '电影的描描述',
-  `movie_score` float(4,1) DEFAULT NULL COMMENT '电影评分',
+  `movie_score` float(4,1) DEFAULT NULL COMMENT '电影评分（7.5）',
   `movie_image_address` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '电影票图片的位置或链接',
   `time` datetime DEFAULT NULL COMMENT '上映时间-放映时间-观看时间',
   `del_status` int(2) DEFAULT NULL COMMENT '删除状态 0 -删除 1 - 可用',
