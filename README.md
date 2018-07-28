@@ -69,14 +69,16 @@ vue搭建前端系统
 │   │   │   │   ├── utils                // 工具类，包括常量类（运用枚举）、获取ip地址、xss转义、序列化类等
 │   │   │   ├── resources                   // 配置资源
 │   │   │   ├── webapps        
-│     │     │     │     ├── css // 样式
-│     │     │     │     ├── images // 图片
-│     │     │     │     ├── js // 存放js目录
+│     │     │     │     ├── css                  // 样式
+│     │     │     │     ├── images               // 图片
+│     │     │     │     ├── js                   // 存放js目录
 │   │   │   │   ├── WEB-INF             
 │   │   │   │   │   ├── view          //存放jsp目录
 │   │   │   │   │   ├── web.xml          
 │   │   │   │   ├── static               // 静态资源
 │   │   ├── test                               // junit单元测试
+│   │   │   ├── java/com/iris               // junit单元测试各层
+│   │   │   ├── resources                   // junit配置资源及插件配置
 │   └── pom.xml                                   //maven管理的 pom 文件
 │   └── README.md
 ```
