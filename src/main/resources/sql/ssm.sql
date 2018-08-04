@@ -1,5 +1,9 @@
 SET FOREIGN_KEY_CHECKS=0;
-
+/*
+表字段数据类型约定：
+状态码：tinyint(2)
+非日志时间类型：bigint(8) //时间戳
+*/
 -- ----------------------------
 -- Table structure for t_user
 -- ----------------------------
@@ -51,23 +55,33 @@ CREATE TABLE `user_info` (
   `user_name` varchar(50) CHARACTER SET utf8mb4 NOT NULL COMMENT '用户名-作为唯一的区分',
   `alias` varchar(300) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '昵称',
   `password` varchar(50) CHARACTER SET utf8mb4 NOT NULL COMMENT '密码，后续用MD5加密',
-  `status` varchar(20) CHARACTER SET utf8mb4DEFAULT NULL COMMENT '判断用户是否可用 0可用，1不可用',
-  `role_key` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '角色控制',
+  `status` tinyint(2) NOT NULL COMMENT '判断用户是否可用 0可用，1不可用',
+  `role_key` varchar(50) CHARACTER SET utf8mb4 NOT NULL COMMENT '角色控制',
   `usr_desc` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '用户描述',
-  `address` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '用户地址',
-  `sex` varchar(10) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '性别',
+  `address` varchar(255) CHARACTER SET utf8mb4 NOT NULL COMMENT '用户地址',
+  `sex` tinyint(2) NOT NULL COMMENT '性别 0女 1男 2不详 ',
   `email` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '电子邮件地址',
   `mobil` varchar(30) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '手机号',
-  `online_state` varchar(10) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '判断是否在线',
-  `create_date` timestamp NULL DEFAULT NULL COMMENT '创建时间',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '控制密码过期时期',
-  `last_log_time` timestamp NULL DEFAULT NULL COMMENT '最后一次登录时间',
-  `log_count` int(4) DEFAULT NULL COMMENT '登录系统次数',
-  `score` int(8) DEFAULT NULL COMMENT '积分系统，方便后续扩展',
-  `flag` int(2) DEFAULT NULL COMMENT '后续考虑',
+  `online_state` tinyint(2) NOT NULL COMMENT '判断是否在线（0离线，1在线）',
+  `create_date` bigint(8) NOT NULL COMMENT '创建时间',
+  `update_date` bigint(8) DEFAULT NULL COMMENT '控制密码过期时期',
+  `last_log_time` bigint(8) DEFAULT NULL COMMENT '最后一次登录时间',
+  `log_count` int(4) NOT NULL DEFAULT '0' COMMENT '登录系统次数',
+  `score` int(8) NOT NULL DEFAULT '0' COMMENT '积分系统，方便后续扩展',
+  `flag` tinyint(2) DEFAULT NULL COMMENT '后续考虑',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------
+-- 用户男女朋友映射表，情侣认证
+-- --------
+DROP TABLE IF EXISTS `user_friend_mapping`;
+CREATE TABLE `user_friend_mapping` (
+  `id` int(11) NOT NULL,
+  `boy_friend_id` int(11) NOT NULL,
+  `girl_friend_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- --------
 -- 用户信息表2 -存放登录的信息，方便对接第三方登录
 -- --------
@@ -78,7 +92,7 @@ CREATE TABLE `user_token` (
   `identity_type` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '身份类型（手机、邮箱等）',
   `credential` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '证书，比如微信的token',
   `verified` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '是否已验证',
-  `binding_time` timestamp NULL DEFAULT NULL COMMENT '绑定时间',
+  `binding_time` bigint(8) NULL DEFAULT NULL COMMENT '绑定时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- --------
@@ -111,8 +125,8 @@ CREATE TABLE `user_money_detail` (
   `type` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '花费类型，后期根据此进行统计',
   `money_status` int(2) DEFAULT NULL COMMENT '判断是否是收入还是支出, 1支出，2 收入',
   `des` varchar(250) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '对此条记录的备注',
-  `create_date` timestamp DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '录入系统时间',
-  `make_date` timestamp DEFAULT NULL COMMENT '实际花费或入账的时间',
+  `create_date` bigint(8) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '录入系统时间',
+  `make_date` bigint(8) DEFAULT NULL COMMENT '实际花费或入账的时间',
   `delete_state` int(2) DEFAULT '0' COMMENT '删除数据时进行标记，0代表未删除，1代表删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

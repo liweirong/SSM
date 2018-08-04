@@ -85,6 +85,22 @@ CREATE TABLE `audit_record` (
   KEY `SESSION_ID` (`SESSION_ID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
+查看文件路径
+show global variables like "%datadir%";
+十万数据
 
-
-
+|system| user.ibd|audit_record.ibd |
+|---|
+|linux|116M|56M |
+|window|118.784M|77.824M|
+ 物理文件大一倍
+ 
+select id,OPER_TYPE,OPER_SENTENCE  from audit_record  where  OPER_TYPE = 'select'  limit  0,20;
+SELECT uid, info -> '$.OPER_TYPE' AS OPER_TYPE, info -> '$.OPER_SENTENCE' AS OPER_SENTENCE FROM `user` where info -> '$.OPER_TYPE' = 'select'  limit 200;
+SELECT uid,info -> '$.OPER_TYPE' AS OPER_TYPE, info -> '$.OPER_SENTENCE' AS OPER_SENTENCE  FROM `user` where info -> '$.OPER_SENTENCE' like '%lwrong%'  limit 0,20;
+SELECT id,OPER_TYPE,OPER_SENTENCE  FROM `audit_record` where  OPER_SENTENCE like '%lwrong%'  limit  0,20;
+EXPLAIN select id,OPER_TYPE,OPER_SENTENCE  from audit_record_risk  where  time = '2018-06-22 16:02:29' and OPER_TYPE = 'delete' and OPER_SENTENCE like '%lwrong%'   
+结论：
+第一轮比较：物理文件json表比普通表大一倍
+第二轮比较：普通查询两个差不多，关键字查询json比普通的查询要慢；
+第三轮比较：一千万数据，5.7(50s)关键字查询比5.6（130s）快一倍多，一般查询时间差不多
