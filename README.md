@@ -93,7 +93,16 @@
 │   └── README.md
 ```
 
-# 五、项目检出启动
+
+# 五、实用网站
+[Apache 官网](//apache.org/)
+[Stackoverflow](https://stackoverflow.com/)
+[Github](https://github.com/)
+[About 云 ](//www.aboutyun.com/)
+[CSDN](//www.csdn.net/)
+[51CTO] (//www.51cto.com/)
+
+# 六、项目检出启动
 #### 1、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
 #### 2、修改后初始化数据库脚本 \resources\sql\ssm.sql
 #### 3、部署启动
