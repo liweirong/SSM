@@ -74,33 +74,33 @@
 │   │   │   │   ├── mapper               // mybatis的 xml 层
 │   │   │   │   ├── model                // 实体类
 │   │   │   │   ├── service              // service接口层
-│   │   │   │   │   ├── impl          // service接口的实现层
+│   │   │   │   │   ├── impl            // service接口的实现层
 │   │   │   │   ├── shiro                // 采用shiro，实现用户的登录与权限控制等
 │   │   │   │   ├── utils                // 工具类，包括常量类（运用枚举）、获取ip地址、xss转义、序列化类等
 │   │   │   ├── resources                   // 配置资源
 │   │   │   ├── webapps        
-│     │     │     │     ├── css                  // 样式
-│     │     │     │     ├── images               // 图片
-│     │     │     │     ├── js                   // 存放js目录
+│   │   │   ├── css                         // 样式
+│   │   │   ├── images                      // 图片
+│   │   │   ├── js                          // 存放js目录
 │   │   │   │   ├── WEB-INF             
-│   │   │   │   │   ├── view          //存放jsp目录
+│   │   │   │   │   ├── view            //存放jsp目录
 │   │   │   │   │   ├── web.xml          
-│   │   │   │   ├── static               // 静态资源
-│   │   ├── test                               // junit单元测试
+│   │   │   │   ├── static                  // 静态资源
+│   │   ├── test                             // junit单元测试
 │   │   │   ├── java/com/iris               // junit单元测试各层
 │   │   │   ├── resources                   // junit配置资源及插件配置
-│   └── pom.xml                                   //maven管理的 pom 文件
+│   └── pom.xml                               // maven管理的 pom 文件
 │   └── README.md
 ```
 
 
 # 五、实用网站
-[Apache 官网](//apache.org/)
-[Stackoverflow](https://stackoverflow.com/)
-[Github](https://github.com/)
-[About 云 ](//www.aboutyun.com/)
-[CSDN](//www.csdn.net/)
-[51CTO] (//www.51cto.com/)
+[Apache 官网](//apache.org/)<br>
+[Stackoverflow](https://stackoverflow.com/)<br>
+[Github（开源、代码托管）](https://github.com/)<br>
+[About 云 ](//www.aboutyun.com/)<br>
+[CSDN](//www.csdn.net/)<br>
+[51CTO](//www.51cto.com/)
 
 # 六、项目检出启动
 #### 1、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
