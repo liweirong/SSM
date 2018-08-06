@@ -3,7 +3,7 @@
 * 开发环境：IDEA、Tomcat8.5、jdk1.8、mysql5.6
 * 系统 linux centos7.1
 * 数据库：MySql、elasticsearch、redis
-* 前端主要使用vue.js、Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis、shiro进行开发，使用Maven构建
+* 前端主要使用vue.js、Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis、shiro进行开发，使用Maven构建；idea插件：lombok、
 （如果采用vue.js则采用前后端分离，目前系统作为后端系统，前端系统另拉分支）
 * 三方服务： 邮件服务、阿里云短信服务、七牛云文件服务、钉钉机器人服务、高德地图API
 * **项目原型图管理地址：[墨刀](https://modao.cc/workspace/apps/p7D3CF01AB41533285900082)**
