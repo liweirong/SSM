@@ -146,7 +146,7 @@ CREATE TABLE `rent_manage_main` (
   `user_id` int(20) DEFAULT NULL COMMENT '对应的用户id',
   `user_name` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '冗余的用户名',
   `describe` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '租房中的备注',
-  `state` int(2) DEFAULT NULL COMMENT '租房状态 0 -不在租 1 - 在租 ',
+  `state` tinyint(1) DEFAULT NULL COMMENT '租房状态 0 -不在租 1 - 在租 ',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
