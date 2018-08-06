@@ -1,6 +1,6 @@
 彩虹系统
 ====
-* 开发环境：IDEA、Tomcat8.5、jdk1.8、mysql5.6
+* 开发环境：IDEA2018.0.1、Tomcat8.5、jdk1.8、mysql5.7
 * 系统 linux centos7.1
 * 数据库：MySql、elasticsearch、redis
 * 前端主要使用vue.js、Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis、shiro进行开发，使用Maven构建；idea插件：lombok、
