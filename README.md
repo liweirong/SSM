@@ -103,7 +103,10 @@
 [51CTO](//www.51cto.com/)
 
 # 六、项目检出启动
-#### 1、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
-#### 2、修改后初始化数据库脚本 \resources\sql\ssm.sql
-#### 3、打包、部署启动
+#### 1、环境准备（mysql5.7，jdk1.8，maven）
+#### 2、git检出到本地（配置相关参数如maven仓库、jdk版本）
+#### 3、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
+#### 4、修改后初始化数据库脚本 \resources\sql\ssm.sql
+#### 5、编译、打包、部署、启动
 
+作者QQ:2277839278 遇到问题可详聊

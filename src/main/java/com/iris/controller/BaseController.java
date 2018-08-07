@@ -1,5 +1,6 @@
 package com.iris.controller;
 
+import com.iris.utils.ActionResult;
 import com.iris.utils.Result;
 import com.iris.utils.StringEscapeEditor;
 import org.slf4j.Logger;
@@ -73,5 +74,14 @@ public abstract class BaseController {
         result.setSuccess(true);
         result.setObj(obj);
         return result;
+    }
+
+
+    public ActionResult returnActionResult(int code, String msg,Object obj) {
+        ActionResult actionResult = new ActionResult();
+        actionResult.setCode(code);
+        actionResult.setMsg(msg);
+        actionResult.setObj(obj);
+        return actionResult;
     }
 }

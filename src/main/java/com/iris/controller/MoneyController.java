@@ -5,6 +5,8 @@ import com.iris.annotation.Log;
 import com.iris.model.SysUser;
 import com.iris.model.UserMoneyDetail;
 import com.iris.service.MoneyService;
+import com.iris.utils.ActionResult;
+import com.iris.utils.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,11 +39,13 @@ public class MoneyController extends BaseController {
     @Log("得到所有账单信息")
     @ResponseBody
     @RequestMapping(value = "listAll/{year}", method = RequestMethod.GET)
-    public ArrayList<UserMoneyDetail> listAll(@PathVariable("year")String year) {
+    public ActionResult listAll(@PathVariable("year")String year) {
         ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, year, 0, 20);
         LOG.info("得到账单信息一个"+allUserMoneyList.size() +"条数据");
-        return allUserMoneyList;
+        return returnActionResult(0, Constants.SUCCESS,allUserMoneyList);
     }
+
+
 
     @Log("得到所有账单信息")
     @ResponseBody
