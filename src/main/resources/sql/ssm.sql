@@ -131,7 +131,7 @@ CREATE TABLE `user_money_detail` (
   `goods_name` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '商品名称',
   `money` double(10,0) DEFAULT NULL COMMENT '支出或收入的钱（元）',
   `type` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '花费类型，后期根据此进行统计',
-  `money_status` int(2) DEFAULT NULL COMMENT '判断是否是收入还是支出, 1支出，2 收入',
+  `money_status` tinyint(1) DEFAULT NULL COMMENT '判断是否是收入还是支出, 0支出，1收入',
   `des` varchar(250) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '对此条记录的备注',
   `create_date` bigint(8) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '录入系统时间',
   `make_date` bigint(8) DEFAULT NULL COMMENT '实际花费或入账的时间',

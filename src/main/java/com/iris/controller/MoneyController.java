@@ -25,14 +25,14 @@ import java.util.Map;
  *         Created by lwrong on 2018/3/7.
 */
 @Controller
-@RequestMapping("/money")
+@RequestMapping("/billManagement")
 public class MoneyController extends BaseController {
     private static final Logger LOG = Logger.getLogger(MoneyController.class);
     @Autowired
     private MoneyService moneyService;
 
     @Log("进入账单管理")
-    @RequestMapping(value = "/money", method = RequestMethod.POST)
+    @RequestMapping(value = "/money", method = RequestMethod.GET)
     public String toMonery(Model model) {
         LOG.info("进入账单管理");
         return "/money/money";
@@ -40,7 +40,7 @@ public class MoneyController extends BaseController {
 
     @Log("得到一年内所有账单信息")
     @ResponseBody
-    @RequestMapping(value = "listAll/{year}", method = RequestMethod.GET)
+    @RequestMapping(value = "bill/{year}", method = RequestMethod.GET)
     public ActionResult listAll(@PathVariable("year") String year,int start , int limit) {
         ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, year, start, limit);
         LOG.info("得到"+year+"年账单信息共" + allUserMoneyList.size() + "条数据");
