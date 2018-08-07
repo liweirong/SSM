@@ -23,7 +23,7 @@ public class ActionResult {
     /**
      * 返回给前台的数据
      */
-    private Object obj;
+    private Object data;
 
 
 }

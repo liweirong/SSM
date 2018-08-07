@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 *
@@ -36,13 +38,16 @@ public class MoneyController extends BaseController {
         return "/money/money";
     }
 
-    @Log("得到所有账单信息")
+    @Log("得到一年内所有账单信息")
     @ResponseBody
     @RequestMapping(value = "listAll/{year}", method = RequestMethod.GET)
-    public ActionResult listAll(@PathVariable("year")String year) {
-        ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, year, 0, 20);
-        LOG.info("得到账单信息一个"+allUserMoneyList.size() +"条数据");
-        return returnActionResult(0, Constants.SUCCESS,allUserMoneyList);
+    public ActionResult listAll(@PathVariable("year") String year,int start , int limit) {
+        ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, year, start, limit);
+        LOG.info("得到"+year+"年账单信息共" + allUserMoneyList.size() + "条数据");
+        Map<String,Object> map = new HashMap<>(16);
+        map.put("list",allUserMoneyList);
+        map.put("total",10);
+        return returnActionResult(Constants.successCode, Constants.SUCCESS, map);
     }
 
 

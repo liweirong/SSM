@@ -1,13 +1,10 @@
 package com.iris.controller;
 
 import com.google.gson.Gson;
-import com.iris.model.UserMoneyDetail;
 import com.iris.testUtils.BaseControllerTest;
 import com.iris.utils.ActionResult;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.ArrayList;
 
 
 /**
@@ -20,8 +17,7 @@ public class MoneyControllerTest extends BaseControllerTest {
 
     @Test
     public void testListAll() throws Exception {
-        ActionResult userMoneyDetails = moneyController.listAll("2018");
-        ArrayList<UserMoneyDetail> obj = (ArrayList<UserMoneyDetail>) userMoneyDetails.getObj();
+        ActionResult userMoneyDetails = moneyController.listAll("2018",0,25);
         Gson gson = new Gson();
         String s = gson.toJson(userMoneyDetails);
         System.out.println(s);
