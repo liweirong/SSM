@@ -1,7 +1,7 @@
 彩虹系统
 ====
-* 开发环境：IDEA2018.0.1、Tomcat8.5、jdk1.8、mysql5.7
-* 系统 linux centos7.1
+* 开发环境：IDEA2018.1、Tomcat8.5、jdk1.8、mysql5.7
+* 系统 CentOS Linux release 7.4.1708 (Core) (cat /etc/redhat-release)
 * 数据库：MySql、elasticsearch、redis
 * 前端主要使用vue.js、Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis、shiro进行开发，使用Maven构建；idea插件：lombok、
 （如果采用vue.js则采用前后端分离，目前系统作为后端系统，前端系统另拉分支）
@@ -77,19 +77,19 @@
 │   │   │   │   │   ├── impl            // service接口的实现层
 │   │   │   │   ├── shiro                // 采用shiro，实现用户的登录与权限控制等
 │   │   │   │   ├── utils                // 工具类，包括常量类（运用枚举）、获取ip地址、xss转义、序列化类等
-│   │   │   ├── resources                   // 配置资源
+│   │   │   ├── resources                 // 配置资源
 │   │   │   ├── webapps        
-│   │   │   ├── css                         // 样式
-│   │   │   ├── images                      // 图片
-│   │   │   ├── js                          // 存放js目录
+│   │   │   ├── css                       // 样式
+│   │   │   ├── images                    // 图片
+│   │   │   ├── js                        // 存放js目录
 │   │   │   │   ├── WEB-INF             
-│   │   │   │   │   ├── view            //存放jsp目录
+│   │   │   │   │   ├── view            // 存放jsp目录
 │   │   │   │   │   ├── web.xml          
-│   │   │   │   ├── static                  // 静态资源
-│   │   ├── test                             // junit单元测试
-│   │   │   ├── java/com/iris               // junit单元测试各层
-│   │   │   ├── resources                   // junit配置资源及插件配置
-│   └── pom.xml                               // maven管理的 pom 文件
+│   │   │   │   ├── static               // 静态资源
+│   │   ├── test                           // junit单元测试
+│   │   │   ├── java/com/iris             // junit单元测试各层
+│   │   │   ├── resources                 // junit配置资源及插件配置
+│   └── pom.xml                             // maven管理的 pom 文件
 │   └── README.md
 ```
 
@@ -105,5 +105,5 @@
 # 六、项目检出启动
 #### 1、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
 #### 2、修改后初始化数据库脚本 \resources\sql\ssm.sql
-#### 3、部署启动
+#### 3、打包、部署启动
 
