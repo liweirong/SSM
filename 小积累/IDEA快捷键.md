@@ -1,10 +1,12 @@
 idea快捷键大全（不断完善）
 -------
+
+ALT+F7  **查看被谁调用**
 Ctrl+Shift + Enter，语句完成
 ！，否定完成，输入表达式时按 ！键
 Ctrl+E，最近的文件
 Ctrl+Shift+E，最近更改的文件
-**Ctr+Shift+U， 大小写切换快捷键**
+Ctr+Shift+U， **大小写切换快捷键**
 Shift+Click，可以关闭文件
 Ctrl+\[ OR \]，可以跑到大括号的开头与结尾
 Ctrl+F12，可以显示当前文件的结构

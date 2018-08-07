@@ -5,6 +5,8 @@ import com.iris.annotation.Log;
 import com.iris.model.SysUser;
 import com.iris.model.UserMoneyDetail;
 import com.iris.service.MoneyService;
+import com.iris.utils.ActionResult;
+import com.iris.utils.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 *
@@ -21,27 +25,32 @@ import java.util.ArrayList;
  *         Created by lwrong on 2018/3/7.
 */
 @Controller
-@RequestMapping("/money")
+@RequestMapping("/billManagement")
 public class MoneyController extends BaseController {
     private static final Logger LOG = Logger.getLogger(MoneyController.class);
     @Autowired
     private MoneyService moneyService;
 
     @Log("进入账单管理")
-    @RequestMapping(value = "/money", method = RequestMethod.POST)
+    @RequestMapping(value = "/money", method = RequestMethod.GET)
     public String toMonery(Model model) {
         LOG.info("进入账单管理");
         return "/money/money";
     }
 
-    @Log("得到所有账单信息")
+    @Log("得到一年内所有账单信息")
     @ResponseBody
-    @RequestMapping(value = "listAll/{year}", method = RequestMethod.GET)
-    public ArrayList<UserMoneyDetail> listAll(@PathVariable("year")String year) {
-        ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, year, 0, 20);
-        LOG.info("得到账单信息一个"+allUserMoneyList.size() +"条数据");
-        return allUserMoneyList;
+    @RequestMapping(value = "bill/{year}", method = RequestMethod.GET)
+    public ActionResult listAll(@PathVariable("year") String year,int start , int limit) {
+        ArrayList<UserMoneyDetail> allUserMoneyList = moneyService.findAllUserMoneyByUserId(1L, year, start, limit);
+        LOG.info("得到"+year+"年账单信息共" + allUserMoneyList.size() + "条数据");
+        Map<String,Object> map = new HashMap<>(16);
+        map.put("list",allUserMoneyList);
+        map.put("total",10);
+        return returnActionResult(Constants.successCode, Constants.SUCCESS, map);
     }
+
+
 
     @Log("得到所有账单信息")
     @ResponseBody

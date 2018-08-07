@@ -1,5 +1,6 @@
-mysql json实验
+## mysql json实验
 
+````
 DELIMITER;;
 CREATE PROCEDURE test_insert_json ( ) BEGIN
 	DECLARE
@@ -15,7 +16,7 @@ CREATE PROCEDURE test_insert_json ( ) BEGIN
 	END WHILE;
 	COMMIT;
 END;;
-
+````
 CALL test_insert_json ( );
 
 
@@ -90,7 +91,7 @@ show global variables like "%datadir%";
 十万数据
 
 |system| user.ibd|audit_record.ibd |
-|---|
+| ---- | ---|---|
 |linux|116M|56M |
 |window|118.784M|77.824M|
  物理文件大一倍

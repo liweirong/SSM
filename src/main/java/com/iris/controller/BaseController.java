@@ -1,5 +1,6 @@
 package com.iris.controller;
 
+import com.iris.utils.ActionResult;
 import com.iris.utils.Result;
 import com.iris.utils.StringEscapeEditor;
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import java.util.Date;
  */
 public abstract class BaseController {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
+
     @InitBinder
     public void initBinder(ServletRequestDataBinder binder) {
         /**
@@ -32,6 +34,7 @@ public abstract class BaseController {
 
     /**
      * ajax失败
+     *
      * @param msg 失败的消息
      * @return {Object}
      */
@@ -43,6 +46,7 @@ public abstract class BaseController {
 
     /**
      * ajax成功
+     *
      * @return {Object}
      */
     public Object renderSuccess() {
@@ -53,6 +57,7 @@ public abstract class BaseController {
 
     /**
      * ajax成功
+     *
      * @param msg 消息
      * @return {Object}
      */
@@ -65,6 +70,7 @@ public abstract class BaseController {
 
     /**
      * ajax成功
+     *
      * @param obj 成功时的对象
      * @return {Object}
      */
@@ -73,5 +79,21 @@ public abstract class BaseController {
         result.setSuccess(true);
         result.setObj(obj);
         return result;
+    }
+
+    /**
+     * 接口统一返回的类型
+     *
+     * @param code 状态码
+     * @param msg  前台的状态信息
+     * @param data 传给前台的数据
+     * @return
+     */
+    public ActionResult returnActionResult(int code, String msg, Object data) {
+        ActionResult actionResult = new ActionResult();
+        actionResult.setCode(code);
+        actionResult.setMsg(msg);
+        actionResult.setData(data);
+        return actionResult;
     }
 }

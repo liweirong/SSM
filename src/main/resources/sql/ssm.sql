@@ -1,8 +1,9 @@
 SET FOREIGN_KEY_CHECKS=0;
 /*
 表字段数据类型约定：
-状态码：tinyint(2)
+状态码：tinyint(1) //（0 关、禁用，  1 开、启用）
 非日志时间类型：bigint(8) //时间戳
+业务数据库表带上：`group_id` bigint(8) NOT NULL COMMENT '对应的用户组id',// 情侣可见
 */
 -- ----------------------------
 -- Table structure for t_user
@@ -20,10 +21,13 @@ INSERT INTO `t_user` VALUES ('1', '测试名d', 'sfasgfaf', '24');
 INSERT INTO `t_user` VALUES ('3', 'admin', 'admin', '22');
 INSERT INTO `t_user` VALUES ('4', '事物1', 'adminadmin', '22');
 
+-- --------
 -- 操作日志表
+-- --------
 DROP TABLE IF EXISTS t_log;
 CREATE TABLE t_log (
    id bigint(20) NOT NULL AUTO_INCREMENT,
+   group_id bigint(8) NOT NULL COMMENT '对应的用户组id',
    user_id varchar(30) DEFAULT NULL COMMENT '操作用户ID',
    user_name varchar(255) DEFAULT NULL COMMENT '操作人名称',
    oper_time datetime DEFAULT NULL COMMENT '操作时间(yyyy-MM-dd HH:mm:ss)',
@@ -31,7 +35,7 @@ CREATE TABLE t_log (
    req_url varchar(100) DEFAULT NULL COMMENT '请求地址',
    method varchar(100) DEFAULT NULL COMMENT '请求方法名称',
    oper_event varchar(300) DEFAULT NULL COMMENT '操作事件（删除，新增，修改，查询，登录，退出）',
-   oper_status tinyint(2) DEFAULT NULL COMMENT '操作状态（1：成功，2：失败）',
+   oper_status tinyint(1) DEFAULT NULL COMMENT '操作状态（1：成功，2：失败）',
    log_desc varchar(300) DEFAULT NULL COMMENT '描述信息',
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='日志表';
@@ -52,6 +56,7 @@ CREATE TABLE `test` (
 DROP TABLE IF EXISTS `user_info`;
 CREATE TABLE `user_info` (
   `id` bigint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(8) NOT NULL COMMENT '对应的用户组id',
   `user_name` varchar(50) CHARACTER SET utf8mb4 NOT NULL COMMENT '用户名-作为唯一的区分',
   `alias` varchar(300) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '昵称',
   `password` varchar(50) CHARACTER SET utf8mb4 NOT NULL COMMENT '密码，后续用MD5加密',
@@ -82,6 +87,7 @@ CREATE TABLE `user_friend_mapping` (
   `girl_friend_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- --------
 -- 用户信息表2 -存放登录的信息，方便对接第三方登录
 -- --------
@@ -95,6 +101,7 @@ CREATE TABLE `user_token` (
   `binding_time` bigint(8) NULL DEFAULT NULL COMMENT '绑定时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- --------
 -- 用户积分表
 -- --------
@@ -119,11 +126,12 @@ INSERT INTO `lev_score` (`id`, `min_score`, `max_score`, `level`) VALUES ('4', '
 DROP TABLE IF EXISTS `user_money_detail`;
 CREATE TABLE `user_money_detail` (
   `id` bigint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(8) NOT NULL COMMENT '对应的用户组id',
   `user_id` bigint(8) NOT NULL COMMENT '对应的用户id',
   `goods_name` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '商品名称',
   `money` double(10,0) DEFAULT NULL COMMENT '支出或收入的钱（元）',
   `type` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '花费类型，后期根据此进行统计',
-  `money_status` int(2) DEFAULT NULL COMMENT '判断是否是收入还是支出, 1支出，2 收入',
+  `money_status` tinyint(1) DEFAULT NULL COMMENT '判断是否是收入还是支出, 0支出，1收入',
   `des` varchar(250) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '对此条记录的备注',
   `create_date` bigint(8) DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '录入系统时间',
   `make_date` bigint(8) DEFAULT NULL COMMENT '实际花费或入账的时间',
@@ -137,14 +145,15 @@ CREATE TABLE `user_money_detail` (
 DROP TABLE IF EXISTS `rent_manage_main`;
 CREATE TABLE `rent_manage_main` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(8) NOT NULL COMMENT '对应的用户组id',
+  `user_id` bigint(8) NOT NULL COMMENT '对应的用户id',
+  `user_name` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '冗余的用户名',
   `homeowner` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '房东名称',
   `rent` double(10,2) DEFAULT NULL COMMENT '房租 不含水电的费用',
   `water_electric` double(10,2) DEFAULT NULL COMMENT '水电费总和',
   `water` double(10,2) DEFAULT NULL COMMENT '水的吨数',
   `electric` double(10,2) DEFAULT NULL COMMENT '电的度数',
   `room_num` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '住宿房间信息',
-  `user_id` int(20) DEFAULT NULL COMMENT '对应的用户id',
-  `user_name` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '冗余的用户名',
   `describe` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '租房中的备注',
   `state` tinyint(1) DEFAULT NULL COMMENT '租房状态 0 -不在租 1 - 在租 ',
   PRIMARY KEY (`id`)
@@ -156,7 +165,8 @@ CREATE TABLE `rent_manage_main` (
 DROP TABLE IF EXISTS `user_movie_manager`;
 CREATE TABLE `user_movie_manager` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(8) DEFAULT NULL,
+  `group_id` bigint(8) NOT NULL COMMENT '对应的用户组id',
+  `user_id` bigint(8) NOT NULL COMMENT '对应的用户id',
   `order_num` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '订单号',
   `movie_name` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '电影名称',
   `movie_tye` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '冗余的电影类型',

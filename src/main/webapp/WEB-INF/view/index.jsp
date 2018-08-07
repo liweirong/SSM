@@ -15,14 +15,12 @@
 <p><a href="/user">用户管理</a></p>
 <p><a href="/toIndex/admin/admin">登录的resultful：/toIndex/admin/admin </a></p>
 <p><a href="/druid">数据库链接管理</a></p>
-/money
-<p><a href="/money/listAll">查询所有的细节/money/listAll/{year}</a></p>
-<p><a href="/money/deleteById">删除所有的细节/money/deleteById/后端接口</a></p>
-<p><a href="/money/listAll">修改所有的细节/money/listAll</a></p>
-<p><a href="/money/listAll">新增所有的细节/money/listAll</a></p>
+/billManagement
+<p><a href="/billManagement/deleteById">删除所有的细节/money/deleteById/后端接口</a></p>
+
 ---------------------------------------------------------
 <span style="color:red;"> 有问题的接口</span>
-<p><a href="/money/money">账单页面</a></p>
+<p><a href="/billManagement/bill/2018?start=0&limit=10">账单页面http://localhost:8080/billManagement/bill/2018?start=0&limit=10</a></p>
 ---------------------------------------------------------
 </body>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/common/jquery-1.12.1.min.js"></script>
