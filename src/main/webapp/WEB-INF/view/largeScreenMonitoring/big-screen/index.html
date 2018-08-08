@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大屏监控</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="loading-mask">
+        <div class="load-container">
+            <div class="load-ball">
+                <div class="load-ball-bg"></div>
+            </div>
+            <div class="load-welcome">
+                <div class="load-text welcome-text">欢迎进入大屏展示系统</div>
+                <div class="welcome-mask"></div>
+                <div class="load-progress">
+                    <div class="progress-bg"></div>
+                </div>
+            </div>
+            <div class="load-text loading-text">正在准备数据</div>
+        </div>
+    </div>
+    <!--整体容器-->
+    <div class="container" id="container">
+        <!--顶部遮挡-->
+        <div class="top-mask"></div>
+        <!--数据中心圆弧-->
+        <div class="data-center-wrap" id="data-center-wrap">
+            <div class="data-center-bg"></div>
+            <div class="data-center" id="data-center">
+                <span class="data-center-text">数据中心</span>
+            </div>
+        </div>
+        <!--主要内容区域-->
+        <div class="main">
+            <!--外围不规则边框遮挡-->
+            <div class="out-mask-wrap">
+                <div class="top-left-out"></div>
+                <div class="top-left-gap1"></div>
+                <div class="top-left-gap2"></div>
+                <div class="switch-btn-mask" id="switch-btn-mask"></div>
+                <div class="top-right-out">
+                    <div class="out-box">
+                        <div class="switch-display-btn" id="switch-display-btn">
+                            <!--<div class="switch-btn-gavinfix"></div>-->
+                            <span class="switch-btn-text">全屏展示</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--主体标题-->
+            <div class="main-title-wrap">
+                <div class="title-top-mask"></div>
+                <p class="main-title">数据库审计监控中心</p>
+            </div>
+            <!--内容区域-->
+            <div class="content clearfix">
+                <!--左侧内容区域-->
+                <div class="content-wrap left-wrap js-left-title">
+                    <div class="running-time">
+                        <span class="content-title">设备已运行</span>
+                        <!--所有的内容、图表等都写在content-box这个容器里面-->
+                        <div class="content-box clock-content" id="clock-content">
+                            <div class="clock-content-item">
+                                <div class="content">
+                                    <i></i>
+                                    <span id="time_day">000</span>
+                                </div>
+                                <span class="clock-unit">天</span>
+                            </div>
+                            <div class="clock-content-item">
+                                <div class="content">
+                                    <i></i>
+                                    <span id="time_hour">00</span>
+                                </div>
+                                <span class="clock-unit">时</span>
+                            </div>
+                            <div class="clock-content-item">
+                                <div class="content">
+                                    <i></i>
+                                    <span id="time_minute">00</span>
+                                </div>
+                                <span class="clock-unit">分</span>
+                            </div>
+                            <div class="clock-content-item">
+                                <div class="content">
+                                    <i></i>
+                                    <span id="time_second">00</span>
+                                </div>
+                                <span class="clock-unit">秒</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="interface-info">
+                        <span class="content-title">接口信息</span>
+                        <div id="line-frame1" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <div class="content-box interface-content">
+                                <div class="interface-admin interface-item">
+                                    <div style="left: 80%;"></div>
+                                    <p style="left: 80%;">ADMIN</p>
+                                </div>
+                                <div class="interface-fe0 interface-item">
+                                    <div style="left: 230%;"></div>
+                                    <p style="left: 240%;">FE0</p>
+                                </div>
+                                <div class="interface-fe1 interface-item">
+                                    <div style="left: 320%;" ></div>
+                                    <p style="left: 330%;">FE1</p>
+                                </div>
+                                <div class="interface-fe2 interface-item">
+                                    <div style="left: 410%;"></div>
+                                    <p style="left: 420%;">FE2</p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="performance-info">
+                        <span class="content-title">性能信息</span>
+                        <div id="line-frame2" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <div class="content-box performance-content">
+                                <div class="performance-item performance-CPU" style="left: 15%;">
+                                    <div></div>
+                                    <p>CPU&nbsp<span>00</span><span class="performancePercentage">%</span></p>
+                                </div>
+                                <div class="performance-item performance-storage" style="left: 35%;">
+                                    <div>
+
+                                    </div>
+                                    <p>内存&nbsp<span>00</span><span class="performancePercentage">%</span></p>
+                                </div>
+                                <div class="performance-item performance-disk" style="left: 55%;">
+                                    <div></div>
+                                    <p>磁盘&nbsp<span>00</span><span class="performancePercentage">%</span></p>
+                                </div>
+                                <div class="performance-item performance-load" style="left: 75%;">
+                                    <div></div>
+                                    <p>负载&nbsp<span>00</span><span class="performancePercentage">%</span></p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="status-curve">
+                        <span class="content-title">状态曲线</span>
+                        <div id="line-frame3" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <div class="content-box" id="conditionCurve">
+                        </div>
+                    </div>
+                    <div class="risk-event">
+                        <span class="content-title">最近风险事件</span>
+                        <div id="line-frame4" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <div class="content-box">
+                            <p class="riskTitle">
+                                <span class="riskLevel">级别</span>
+                                <span class="riskTime">产生时间</span>
+                                <span class="descriptionTit">风险简述</span>
+                            </p>
+                            <div id="riskGrid" style="height: 80%;">
+                                <div id="risklist1">
+                                  <ul>
+                                    <!--<li class="riskData">-->
+                                        <!--<span class="riskLevel">高级</span>-->
+                                        <!--<span class="riskTime">2018-7-10 23:23:23</span>-->
+                                        <!--<span class="description">对pet表中所有数据进行了统计操作</span>-->
+                                    <!--</li>-->
+                                  </ul>
+                                </div>
+                                <div id="risklist2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--中心内容区域-->
+                <div class="content-wrap center-wrap js-left-title">
+                    <div class="risk-score">
+                        <div id="line-frame5" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <div class="content-box">
+                            <div id="gradePolo"></div>
+                            <div id="insetPolo">
+                                <div class="polo-wrap">
+                                    <span class="polo-score">5</span>分
+                                </div>
+                            </div>
+                            <div class="risk-level-wrap">
+                                <div class="risk-level-item">
+                                    <div class="risk-title high-risk-title">
+                                        <span>高风险</span>
+                                    </div>
+                                    <div class="risk-value high-risk-value">
+                                        <span id="high-risk-value"></span>
+                                    </div>
+                                </div>
+                                <div class="risk-level-item">
+                                    <div class="risk-title medium-risk-title">
+                                        <span>中风险</span>
+                                    </div>
+                                    <div class="risk-value medium-risk-value">
+                                        <span id="medium-risk-value"></span>
+                                    </div>
+                                </div>
+                                <div class="risk-level-item">
+                                    <div class="risk-title low-risk-title">
+                                        <span>低风险</span>
+                                    </div>
+                                    <div class="risk-value low-risk-value">
+                                        <span id="low-risk-value"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="risk-date" class="move-date-wrap clearfix">
+                            <div id="risk-year" class="date-item">
+                                <span>年</span>
+                            </div>
+                            <div id="risk-month" class="date-item">
+                                <span>月</span>
+                            </div>
+                            <div id="risk-day" class="date-item">
+                                <span>日</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="db-status">
+                        <span class="content-title">数据库状态</span>
+                        <div id="line-frame6" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <!--所有的内容、图表等都写在content-box这个容器里面-->
+                        <div class="content-box">
+                            <div id="databaseYear" class="databaseYear"></div>
+                        </div>
+                        <div id="status-date" class="move-date-wrap clearfix">
+                            <div id="status-year" class="date-item">
+                                <span>年</span>
+                            </div>
+                            <div id="status-month" class="date-item">
+                                <span>月</span>
+                            </div>
+                            <div id="status-day" class="date-item">
+                                <span>日</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--右侧内容区域-->
+                <div class="content-wrap right-wrap js-right-title">
+                    <div style="width: 100%;height: 9.2%;"></div>
+                    <div class="visit-count">
+                        <span class="content-title">访问次数TOP5</span>
+                        <div id="line-frame7" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <!--所有的内容、图表等都写在content-box这个容器里面-->
+                        <div class="content-box">
+                            <div class="visited-times">
+                                <p class="visited-title">访问次数</p>
+                                <div class="visited-sheet">
+                                    <div class="visited-sheet-header">
+                                        <span style="left: 9%;">IP地址</span>
+                                        <span style="left: 65%;">访问次数</span>
+                                    </div>
+                                    <ul style="height: 100%;">
+                                        <!--<li>-->
+                                            <!--<i>1</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>1234567</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<i>2</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>123456</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<i>3</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>12345</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<i>4</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>1234</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<i>5</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>123</span>-->
+                                        <!--</li>-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="abnormal-visited-times">
+                                <p class="visited-title">异常访问次数</p>
+                                <div class="visited-sheet">
+                                    <div class="visited-sheet-header">
+                                        <span style="left: 9%">IP地址</span>
+                                        <span style="left: 65%;">访问次数</span>
+                                    </div>
+                                    <ul style="height: 100%;">
+                                        <!--<li>-->
+                                            <!--<i>1</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>1234567</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<i>2</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>123456</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<i>3</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>12345</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<i>4</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>1234</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<i>5</i>-->
+                                            <!--<em>172.1.24.109</em>-->
+                                            <!--<span>123</span>-->
+                                        <!--</li>-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-analysis">
+                        <span class="content-title">客户端分析</span>
+                        <div id="line-frame8" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <div class="content-box" id="customer-echarts"></div>
+                    </div>
+                    <div class="sql-analysis">
+                        <span class="content-title">语句操作分析</span>
+                        <div id="line-frame9" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <div class="content-box">
+                            <div id="operationType" class="operationType"></div>
+                            <div id="operationTime" class="operationType"></div><!--class="type-->
+                        </div>
+                    </div>
+                    <div class="intruding-analysis">
+                        <span class="content-title">陌生人闯入分析</span>
+                        <div id="line-frame10" class="line-frame">
+                            <div class="flar-line-wrap"></div>
+                        </div>
+                        <div class="content-box strange" id="strange">
+                             <!--<div id="strange" class="strange"></div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/echarts.js"></script>
+<script src="js/echarts-liquidfill.js"></script>
+<script src="js/lottie.min.js"></script>
+<script src="js/line.js"></script>
+<script src="js/bubble-data.js"></script>
+<script src="js/chart-option.js"></script>
+
+<script>
+
+</script>
+
+<script src="js/dateLogic.js"></script>
+</html>

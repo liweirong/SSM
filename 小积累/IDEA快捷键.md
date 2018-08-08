@@ -1,6 +1,6 @@
 idea快捷键大全（不断完善）
 -------
-
+Ctrl+F12 查看类中方法（eclipse:Ctrl+o）
 ALT+F7  **查看被谁调用**
 Ctrl+Shift + Enter，语句完成
 ！，否定完成，输入表达式时按 ！键
