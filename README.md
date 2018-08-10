@@ -16,21 +16,21 @@
 ## Table of Contents
 <!-- GFM-TOC -->
 * [一、项目设计想法](#project-design-idea)
-* [二、项目计划](#二项目计划)
-    * [项目大纲-总模块列表](#项目大纲-总模块列表)
-* [三、项目进度](#三项目进度)
-* [四、目录结构](#四目录结构)
-* [五、实用网站](#五实用网站)
-* [六、项目检出启动](#六项目检出启动)
+* [二、项目计划](#project-plan)
+* [三、项目进度](#project-progress)
+* [四、目录结构](#file-structure)
+* [五、实用网站](#useful-links)
+* [六、项目检出启动](#quick-start)
 
 <!-- GFM-TOC -->
 
 # Project design idea
-项目设计想法
+```项目设计想法```
 > 该系统主要面向小情侣，方便对于金钱的管理，促使双方养成个好的习惯，不乱花钱，同时对生活产生一种仪式感，使感情更加融洽；
 > 其他的用户主要用于日常账单的管理，单身的时候更加要精打细算，才能遇见更好的他/她。
 
-# 二、项目计划
+# Project plan
+```项目计划```
 ## 项目大纲-总模块列表
 ### 1.用户
 * **登录注册**  邮件接口，短信接口
@@ -53,8 +53,8 @@
 * **用户管理** 维护客户关系，在线人数统计
 * **积分管理** 对应礼物、娱乐系统，互动加积分
 
-# 三、项目进度
-
+#Project progress
+```项目进度```
 * 原型图
 - [x] 后台原型图 
 - [x] 首页原型图 
@@ -77,7 +77,9 @@
 
 * 还未考虑好的：针对后期数据可能集成elasticsearch 等针对大数据量的数据库（用户量大的情况），接入其他缓存服务器redis等
 
-# 四、目录结构
+# File Structure
+```目录结构```  
+Within the download you'll find the following directories and files:
 ```
 ├── ssm
 │   ├── src                  
@@ -108,8 +110,8 @@
 │   └── README.md
 ```
 
-
-# 五、实用网站
+# Useful Links
+```实用网站```
 [Apache 官网](//apache.org/)<br>
 [Stackoverflow](https://stackoverflow.com/)<br>
 [Github（开源、代码托管）](https://github.com/)<br>
@@ -117,7 +119,8 @@
 [CSDN](//www.csdn.net/)<br>
 [51CTO](//www.51cto.com/)
 
-# 六、项目检出启动
+# Quick start
+```项目检出启动```
 #### 1、环境准备（mysql5.7，jdk1.8，maven）
 #### 2、git检出到本地（配置相关参数如maven仓库、jdk版本）
 #### 3、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
