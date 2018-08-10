@@ -53,7 +53,7 @@
 * **用户管理** 维护客户关系，在线人数统计
 * **积分管理** 对应礼物、娱乐系统，互动加积分
 
-#Project progress
+# Project progress
 ```项目进度```
 * 原型图
 - [x] 后台原型图 
@@ -111,7 +111,7 @@ Within the download you'll find the following directories and files:
 ```
 
 # Useful Links
-```实用网站```
+```实用网站```  
 [Apache 官网](//apache.org/)<br>
 [Stackoverflow](https://stackoverflow.com/)<br>
 [Github（开源、代码托管）](https://github.com/)<br>
