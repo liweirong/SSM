@@ -1,23 +1,39 @@
 彩虹系统
 ====
+![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
+```
 * 开发环境：IDEA2018.1、Tomcat8.5、jdk1.8、mysql5.7
 * 系统 CentOS Linux release 7.4.1708 (Core) (cat /etc/redhat-release)
 * 数据库：MySql、elasticsearch、redis
-* 前端主要使用vue.js、Bootstrap、echarts以及JQuery，后端基于SpringMVC、Spring、MyBatis、shiro进行开发，使用Maven构建；idea插件：lombok、
+* 前端主要使用vue.js、Bootstrap、echarts以及JQuery，
+* 后端基于SpringMVC、Spring、MyBatis、shiro进行开发，使用Maven构建；idea插件：lombok、
 （如果采用vue.js则采用前后端分离，目前系统作为后端系统，前端系统另拉分支）
 * 三方服务： 邮件服务、阿里云短信服务、七牛云文件服务、钉钉机器人服务、高德地图API
+```
 * **项目原型图管理地址：[墨刀](https://modao.cc/workspace/apps/p7D3CF01AB41533285900082)**
 * **项目管理地址：[Testin](https://www.testin.cn/realmachine/index.htm)**
 * **项目接口管理地址：[eolinker](https://www.eolinker.com/#/home/project/api/)**
 
-# 一、项目设计想法
+## Table of Contents
+<!-- GFM-TOC -->
+* [一、项目设计想法](#project-design-idea)
+* [二、项目计划](#project-plan)
+* [三、项目进度](#project-progress)
+* [四、目录结构](#file-structure)
+* [五、实用网站](#useful-links)
+* [六、项目检出启动](#quick-start)
 
+<!-- GFM-TOC -->
+
+# Project design idea
+```项目设计想法```
 > 该系统主要面向小情侣，方便对于金钱的管理，促使双方养成个好的习惯，不乱花钱，同时对生活产生一种仪式感，使感情更加融洽；
 > 其他的用户主要用于日常账单的管理，单身的时候更加要精打细算，才能遇见更好的他/她。
 
-# 二、项目计划
-## 项目大纲-总模块列表
-### 1.用户
+# Project plan
+```项目计划```
+### 项目大纲-总模块列表
+#### 1.用户（前台）
 * **登录注册**  邮件接口，短信接口
 * **房租模块**  生活消费的分支，图片服务器发票
 * **账单管理**  生活消费
@@ -30,7 +46,7 @@
 * **日程管理** 自定义节日、法定节假日的提醒及推荐 - 邮件、短信提醒
 * **好友动态** 互动
 * **情侣互聊** 互动
-### 2.后台管理
+#### 2.管理员（后台管理）
 * **日志管理** 主要针对敏感数据及危及系统的操作
 * **数据维护** 导入及导出，备份，脱敏，加密
 * **权限管理** 维护好管理员和用户的功能
@@ -38,8 +54,8 @@
 * **用户管理** 维护客户关系，在线人数统计
 * **积分管理** 对应礼物、娱乐系统，互动加积分
 
-# 三、项目进度
-
+# Project progress
+```项目进度```
 * 原型图
 - [x] 后台原型图 
 - [x] 首页原型图 
@@ -62,7 +78,9 @@
 
 * 还未考虑好的：针对后期数据可能集成elasticsearch 等针对大数据量的数据库（用户量大的情况），接入其他缓存服务器redis等
 
-# 四、目录结构
+# File Structure
+```目录结构```  
+Within the download you'll find the following directories and files:
 ```
 ├── ssm
 │   ├── src                  
@@ -93,8 +111,8 @@
 │   └── README.md
 ```
 
-
-# 五、实用网站
+# Useful Links
+```实用网站```  
 [Apache 官网](//apache.org/)<br>
 [Stackoverflow](https://stackoverflow.com/)<br>
 [Github（开源、代码托管）](https://github.com/)<br>
@@ -102,7 +120,8 @@
 [CSDN](//www.csdn.net/)<br>
 [51CTO](//www.51cto.com/)
 
-# 六、项目检出启动
+# Quick start
+```项目检出启动```
 #### 1、环境准备（mysql5.7，jdk1.8，maven）
 #### 2、git检出到本地（配置相关参数如maven仓库、jdk版本）
 #### 3、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
