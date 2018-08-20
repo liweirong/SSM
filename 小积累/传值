@@ -1,0 +1,113 @@
+###daoimpl传入带list的hashmap
+---------------------------------------controller----------------------------------------------------
+" @OperationLogs(description = ""sort.dashboard.title"")
+    @RequestMapping(value = ""/sort"", method = RequestMethod.PUT)
+    public ActionResult sort(@RequestParam(value = ""dbIds"") int[] ids, String dbType) {
+        Long userId = queryUserIdByToken();
+        ActionResult result = new ActionResult();
+        int code = -1;
+        //在筛选数据库类型的情况下
+        if(SpringUtils.hasLength(dbType)){
+            code = dashboardService.sortUserDatabaseConfig(ids, userId, dbType);
+        }
+        else {
+            code = dashboardService.sortUserDatabaseConfig(ids, userId);
+        }
+        if (code == 0) {
+            result.setCode(-1);
+            result.setMessage(""更新失败"");
+        }
+        if (code == 1) {
+            result.setCode(0);
+            result.setMessage(""更新成功"");
+        }
+        return result;
+    }"
+---------------------------------------serviceImpl----------------------------------------------------
+" @Override
+    public int sortUserDatabaseConfig(int[] ids, Long userId, String dbType) {
+        List<DbSort> list = new ArrayList<>();
+        for (int i = 0; i < ids.length; i++) {
+            DbSort dbSort = new DbSort();
+            dbSort.setDbConfigId(ids[i]);
+            dbSort.setDbTypeSort(i+1);
+            list.add(dbSort);
+        }
+        HashMap<String, Object> map = new HashMap<>(16);
+        map.put(""dbType"", dbType);
+        map.put(""userId"", userId);
+        map.put(""ids"", list);
+        dbSortMapper.sortUserOneTypeDatabaseConfig(map);
+        int code = dbSortMapper.sortUserOneTypeDatabaseConfig(map);
+        return code;
+    }"
+---------------------------------------dao----------------------------------------------------
+"  /**
+     * 更新用户某一种数据库排序
+     * @param map
+     * @return
+     */
+    int sortUserOneTypeDatabaseConfig(HashMap<String,Object> map);"
+---------------------------------------daoImpl----------------------------------------------------
+" <!--更新用户的某种数据库排序-->
+  <update id=""sortUserOneTypeDatabaseConfig"" parameterType=""java.util.HashMap"">
+    UPDATE db_sort SET db_type_sort =( case db_config_id
+    <foreach collection=""ids"" item=""item""  separator="" ""  close=""end"">
+      when  #{item.dbConfigId,jdbcType=INTEGER}
+      then  #{item.dbTypeSort,jdbcType=INTEGER}
+    </foreach>
+    )
+    WHERE user_id = #{userId,jdbcType=BIGINT} and db_type = #{dbType,jdbcType=VARCHAR}
+  </update>"
+
+
+ /**
+     * 测试数据库连接
+     *
+     * @param databaseConfig 数据库配置
+     * @return
+     */
+    @OperationLogs(description = "test.databaseConfigConnect.title")
+    @RequestMapping(value = "/testDatabase", method = RequestMethod.POST)
+    public ActionResult testConnect(@ModelAttribute DatabaseConfig databaseConfig) {
+        ActionResult actionResult = new ActionResult();
+        int code = databaseConfigService.testConnect(databaseConfig);
+        Map<String, String> logs = new HashMap<>(16);
+        logs.put("DatabaseConfig.dbIp", databaseConfig.getDbIp());
+        logs.put("DatabaseConfig.dbPort", databaseConfig.getDbPort().toString());
+        logs.put("DatabaseConfig.dbAlias", databaseConfig.getDbAlias());
+        encapsulationResult(logs, actionResult, "", code);
+        return actionResult;
+    }
+
+    /**
+         * 检索请求，按条件查询
+         *
+         * @param auditRecordQuery
+         * @param request
+         * @return 按条件查询的数据
+         */
+        @OperationLogs(description = "query.retrieval.list")
+        @RequestMapping(value = "/auditRecord", method = RequestMethod.GET)
+        public ActionResult listAuditRecord(AuditRecordQuery auditRecordQuery, HttpServletRequest request) {
+            ActionResult actionResult = new ActionResult();
+            auditRecordQuery.setDepartmentUuid("1");
+            //得到查询到的数据
+            Map<String, Object> map = auditRecordService.listAuditRecordByCondition(auditRecordQuery);
+            encapsulationResult(null, actionResult, map, Constants.THE_RESPOND_IS_SUCCEED);
+            return actionResult;
+        }
+     /**
+         * 添加或修改数据库告警配置
+         *
+         * @param alarmConfigs 要添加或修改的数据库告警配置集合
+         * @return
+         */
+        @OperationLogs(description = "update.dbAlarmConfig.title")
+        @RequestMapping(value = "/dbAlarmConfig", method = RequestMethod.POST)
+        public synchronized ActionResult updateAlarmConfig(@RequestBody List<DbAlarmConfig> alarmConfigs) {
+            ActionResult actionResult = new ActionResult();
+            int code = databaseConfigService.updateAlarmConfig(alarmConfigs);
+            encapsulationResult(alarmConfigs, actionResult, "", code);
+            return actionResult;
+        }
