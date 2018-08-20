@@ -173,7 +173,7 @@ CREATE TABLE `rent_manage_main` (
   `electric` double(10,2) DEFAULT NULL COMMENT '电的度数',
   `room_num` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '住宿房间信息',
   `describe` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '租房中的备注',
-  `state` int(2) DEFAULT NULL COMMENT '租房状态 0 -不在租 1 - 在租 ',
+  `state` tinyint(1) DEFAULT NULL COMMENT '租房状态 0 -不在租 1 - 在租 ',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
