@@ -46,8 +46,9 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
-        <table schema="" tableName="operation_log" domainObjectName="OperationLog"
+        <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名，驼峰可不写 -->
+        <table schema="" tableName="operation_log"
+               domainObjectName=""
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

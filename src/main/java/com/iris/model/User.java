@@ -1,14 +1,12 @@
 package com.iris.model;
 
 
-import lombok.Data;
 
 /**
 * @Description: 用户表
 * @author lwrong
-* @date 2016年12月15日 下午5:37:51 
+* @date 2018年8月20日 下午5:37:51
 */
-@Data
 public class User {
     private String id;
 

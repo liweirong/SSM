@@ -1,5 +1,7 @@
 idea快捷键大全（不断完善）
 -------
+Ctrl+z 撤销
+Ctrl+Shift+Z 恢复Ctrl+z撤销掉的内容
 Ctrl+F12 查看类中方法（eclipse:Ctrl+o）
 ALT+F7  **查看被谁调用**
 Ctrl+Shift + Enter，语句完成

@@ -138,6 +138,24 @@ CREATE TABLE `user_money_detail` (
   `delete_state` int(2) DEFAULT '0' COMMENT '删除数据时进行标记，0代表未删除，1代表删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- --
+-- CREATE TABLE `user_money_detail` (
+--  `ID` bigint(8) unsigned NOT NULL AUTO_INCREMENT,
+-- `USER_ID` bigint(8) NOT NULL COMMENT '对应的用户id',
+-- `GOODS_NAME` varchar(250) DEFAULT NULL COMMENT '商品名称',
+-- `MONEY` double(10,0) DEFAULT NULL COMMENT '支出或收入的钱（元）',
+-- `TYPE` varchar(50) DEFAULT NULL COMMENT '花费类型，后期根据此进行统计',
+-- `MONEY_STATUS` int(2) DEFAULT NULL COMMENT '判断是否是收入还是支出, 1支出，2 收入',
+-- `DES` varchar(250) DEFAULT NULL COMMENT '对此条记录的备注',
+-- `CREATE_DATE` timestamp NULL DEFAULT NULL COMMENT '录入系统时间',
+-- `MAKE_DATE` timestamp NULL DEFAULT NULL COMMENT '实际花费或入账的时间',
+-- `DELETE_STATE` int(2) DEFAULT '0' COMMENT '删除数据时进行标记，0代表不可删除，1代表可删除',
+-- PRIMARY KEY (`ID`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+-- INSERT INTO `ssm`.`user_money_detail`(`ID`, `USER_ID`, `GOODS_NAME`, `MONEY`, `TYPE`, `MONEY_STATUS`, `DES`, `CREATE_DATE`, `MAKE_DATE`, `DELETE_STATE`) VALUES (1, 1, '11', 11, '1', 1, '1', '2018-06-28 21:09:25', '2018-06-28 21:09:22', 0);
+-- INSERT INTO `ssm`.`user_money_detail`(`ID`, `USER_ID`, `GOODS_NAME`, `MONEY`, `TYPE`, `MONEY_STATUS`, `DES`, `CREATE_DATE`, `MAKE_DATE`, `DELETE_STATE`) VALUES (2, 1, 'good', 11, '1', 1, '666', '2018-08-07 15:41:58', '2018-08-07 15:41:58', 0);
+-- INSERT INTO `ssm`.`user_money_detail`(`ID`, `USER_ID`, `GOODS_NAME`, `MONEY`, `TYPE`, `MONEY_STATUS`, `DES`, `CREATE_DATE`, `MAKE_DATE`, `DELETE_STATE`) VALUES (3, 1, 'good', 11, '1', 1, '666', '2018-07-03 14:03:42', '2018-07-03 14:03:42', 0);
+-- --
 
 -- --------
 -- 用户租房模块主表
