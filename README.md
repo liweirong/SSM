@@ -8,7 +8,7 @@
 * 前端主要使用vue.js、Bootstrap、echarts以及JQuery，
 * 后端基于SpringMVC、Spring、MyBatis、shiro进行开发，使用Maven构建；idea插件：lombok、
 （如果采用vue.js则采用前后端分离，目前系统作为后端系统，前端系统另拉分支）
-* 三方服务： 邮件服务、阿里云短信服务、七牛云文件服务、钉钉机器人服务、高德地图API
+* 三方服务： 邮件服务、谷歌双因子认证、七牛云文件服务、钉钉机器人服务、高德地图API
 ```
 * **项目原型图管理地址：[墨刀](https://modao.cc/workspace/apps/p7D3CF01AB41533285900082)**
 * **项目管理地址：[Testin](https://www.testin.cn/realmachine/index.htm)**
@@ -122,10 +122,10 @@ Within the download you'll find the following directories and files:
 
 # Quick start
 ```项目检出启动```
-#### 1、环境准备（mysql5.7，jdk1.8，maven）
+#### 1、环境准备（mysql5.7，jdk1.8，maven3+，idea2018等安装对应版本lombok插件）
 #### 2、git检出到本地（配置相关参数如maven仓库、jdk版本）
 #### 3、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
-#### 4、修改后初始化数据库脚本 \resources\sql\ssm.sql
+#### 4、修改后初始化对应数据库脚本 \resources\sql\ssm.sql
 #### 5、编译、打包、部署、启动
 
 作者QQ:2277839278 遇到问题可详聊
