@@ -1,6 +1,12 @@
 彩虹系统
 ====
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
+![](https://img.shields.io/badge/version-1.0.0-blue.svg) 
+![](https://img.shields.io/badge/java-1.8%2B-brightgreen.svg) 
+![](https://img.shields.io/badge/maven-3.0%2B-brightgreen.svg) 
+![](https://img.shields.io/badge/node.js-8.0%2B-brightgreen.svg)
+![](https://img.shields.io/badge/tomcat-8.5-brightgreen.svg)
+![](https://img.shields.io/badge/mysql-5.7-brightgreen.svg)
+
 ```
 * 开发环境：IDEA2018.1、Tomcat8.5、jdk1.8、mysql5.7
 * 系统 CentOS Linux release 7.4.1708 (Core) (cat /etc/redhat-release)
