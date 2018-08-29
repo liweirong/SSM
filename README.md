@@ -127,11 +127,97 @@ Within the download you'll find the following directories and files:
 [51CTO](//www.51cto.com/)
 
 # Quick start
-```项目检出启动```
+### 资源下载
+- Maven [http://maven.apache.org/download.cgi](http://maven.apache.org/download.cgi "Maven")
+- Redis [https://redis.io/download](https://redis.io/download "Redis")
+- ActiveMQ [http://activemq.apache.org/download-archives.html](http://activemq.apache.org/download-archives.html "ActiveMQ")
+- ZooKeeper [http://www.apache.org/dyn/closer.cgi/zookeeper/](http://www.apache.org/dyn/closer.cgi/zookeeper/ "ZooKeeper")
+- Dubbo [http://dubbo.io/Download-zh.htm](http://dubbo.io/Download-zh.htm "Dubbo")
+- Elastic Stack [https://www.elastic.co/downloads](https://www.elastic.co/downloads "Elastic Stack")
+- Nginx [http://nginx.org/en/download.html](http://nginx.org/en/download.html "Nginx")
+- Jenkins [http://updates.jenkins-ci.org/download/war/](http://updates.jenkins-ci.org/download/war/ "Jenkins")
+- dubbo-admin-2.5.3 [http://download.csdn.net/detail/shuzheng5201314/9733652](http://download.csdn.net/detail/shuzheng5201314/9733652 "dubbo-admin-2.5.3")
+- dubbo-admin-2.5.4-SNAPSHOT-jdk8 [http://download.csdn.net/detail/shuzheng5201314/9733657]
+
+### 项目检出启动
 #### 1、环境准备（mysql5.7，jdk1.8，maven3+，idea2018等安装对应版本lombok插件）
 #### 2、git检出到本地（配置相关参数如maven仓库、jdk版本）
 #### 3、修改数据库配置文件\resources\properties\jdbc.properties 文件中的数据库名和密码
 #### 4、修改后初始化对应数据库脚本 \resources\sql\ssm.sql
 #### 5、编译、打包、部署、启动
 
+## 开发指南:
+- 1、本机安装Jdk7、Mysql、Redis、Zookeeper、ActiveMQ并**启动相关服务**，使用默认配置默认端口即可
+- 2、克隆源代码到本地并打开，**推荐使用IntelliJ IDEA**，本地编译并安装到本地maven仓库
+### 框架规范约定
+约定优于配置(convention over configuration)，此框架约定了很多编程规范，下面一一列举：
+```
+
+- service类，需要在叫名`service`的包下，并以`Service`结尾，如`CmsArticleServiceImpl`
+
+- controller类，需要在以`controller`结尾的包下，类名以Controller结尾，如`CmsArticleController.java`，并继承`BaseController`
+
+- spring task类，需要在叫名`task`的包下，并以`Task`结尾，如`TestTask.java`
+
+- mapper.xml，需要在名叫`mapper`的包下，并以`Mapper.xml`结尾，如`CmsArticleMapper.xml`
+
+- mapper接口，需要在名叫`mapper`的包下，并以`Mapper`结尾，如`CmsArticleMapper.java`
+
+- model实体类，需要在名叫`model`的包下，命名规则为数据表转驼峰规则，如`CmsArticle.java`
+
+- spring配置文件，命名规则为`applicationContext-*.xml`
+
+- 类名：首字母大写驼峰规则；方法名：首字母小写驼峰规则；常量：全大写；变量：首字母小写驼峰规则，尽量非缩写
+
+- springmvc配置加到对应模块的`springMVC-servlet.xml`文件里
+
+- 配置文件放到`src/main/resources`目录下
+
+- 静态资源文件放到`src/main/webapp/resources`目录下
+
+- jsp文件，需要在`/WEB-INF/jsp`目录下
+
+- `RequestMapping`和返回物理试图路径的url尽量写全路径，如：`@RequestMapping("/manage")`、`return "/manage/index"`
+
+- `RequestMapping`指定method
+
+- 模块命名为`项目`-`子项目`-`业务`，如`zheng-cms-admin`
+
+- 数据表命名为：`子系统`_`表`，如`cms_article`
+
+- 更多规范，参考[[阿里巴巴Java开发手册] http://git.oschina.net/shuzheng/zheng/attach_files
+
+```
+### 参与开发
+
+首先谢谢大家支持，如果你希望参与开发，欢迎通过[Github](https://github.com/liweirong/SSM "Github")上fork本项目，并Pull Request您的commit。
 作者QQ:2277839278 遇到问题可详聊
+
+## 附件
+### 在线小工具
+
+- [在线Cron表达式生成器](http://cron.qqe2.com/ "在线Cron表达式生成器")
+
+- [在线工具 - 程序员的工具箱](http://tool.lu/ "在线工具 - 程序员的工具箱")
+
+### 在线文档
+
+- [JDK7英文文档](http://tool.oschina.net/apidocs/apidoc?api=jdk_7u4 "JDK7英文文档")
+
+- [Spring4.x文档](http://spring.oschina.mopaas.com/ "Spring4.x文档")
+
+- [Mybatis3官网](http://www.mybatis.org/mybatis-3/zh/index.html "Mybatis3官网")
+
+- [Dubbo官网](http://dubbo.io/ "Dubbo官网")
+
+- [Nginx中文文档](http://tool.oschina.net/apidocs/apidoc?api=nginx-zh "Nginx中文文档")
+
+- [Freemarker在线手册](http://freemarker.foofun.cn/ "Freemarker在线中文手册")
+
+- [Velocity在线手册](http://velocity.apache.org/engine/devel/developer-guide.html "Velocity在线手册")
+
+- [Bootstrap在线手册](http://www.bootcss.com/ "Bootstrap在线手册")
+
+- [Git官网中文文档](https://git-scm.com/book/zh/v2 "Git官网中文文档")
+
+- [Thymeleaf](http://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html "Thymeleaf")
