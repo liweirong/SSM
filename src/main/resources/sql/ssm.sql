@@ -213,6 +213,37 @@ INSERT INTO `movie_type` (`id`, `movie_type`) VALUES ('1', '科幻');
 INSERT INTO `movie_type` (`id`, `movie_type`) VALUES ('2', '剧情');
 INSERT INTO `movie_type` (`id`, `movie_type`) VALUES ('3', '战争');
 
+-- ----------------------------
+-- 火车订单表 -- 便于做旅行计划
+-- ----------------------------
+DROP TABLE IF EXISTS `train_order`;
+CREATE TABLE `train_order`  (
+  `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '订单号',
+  `order_time` bigint(8) NOT NULL DEFAULT 0 COMMENT '订单时间',
+  `train_start_time` bigint(8) NOT NULL DEFAULT 0 COMMENT '发车时间',
+  `train_number` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车次（G高铁、D动车、Z直达、T特快、K快速）',
+  `train_hair_station` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '始发站',
+  `journey_start_station` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '发站',
+  `journey_end_station` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '到站',
+  `train_terminus` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '终点站',
+  `passenger_uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '乘客uuid',
+  `passenger_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT '' COMMENT '乘客名（冗余字段）',
+  `ticket_species` tinyint(4) NOT NULL COMMENT '票种（0：成人、1：学生、2：儿童）',
+  `banning` tinyint(4) NOT NULL DEFAULT 10 COMMENT '席别（0：商务/特等，1：一等，2：二等，3：高软，4软卧，5：动卧，6：硬卧，7：软座，8：硬座，9：无座，10：其他）',
+  `carriage` varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车厢（例如：01、18）',
+  `seat_number` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '座位',
+  `ticket_price` double(10, 1) NOT NULL COMMENT '票价（单位：元）',
+  `order_state` tinyint(4) NOT NULL DEFAULT 4 COMMENT '状态（0：已支付，1：未支付，2：已改签，3：已取消，4：其他）',
+  PRIMARY KEY (`uuid`) USING BTREE,
+  INDEX `user_uuid`(`passenger_uuid`) USING BTREE COMMENT '用户uuid'
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of train_order
+-- ----------------------------
+INSERT INTO `train_order` VALUES ('EC09993530', 1535977540, 1538202600, 'G237', '北京南', '北京南', '唐山', '唐山', 'uuid1', '郑玉虹', 0, 2, '02', '13A号', 107.0, 0);
+INSERT INTO `train_order` VALUES ('EC37796700', 1535977540, 1538202600, 'D904', '深圳北', '深圳北', '北京西', '北京西', 'uuid1', '郑玉虹', 0, 5, '13', '33号下铺', 1190.0, 0);
+
 
 
 
