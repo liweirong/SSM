@@ -213,11 +213,12 @@ INSERT INTO `movie_type` (`id`, `movie_type`) VALUES ('1', '科幻');
 INSERT INTO `movie_type` (`id`, `movie_type`) VALUES ('2', '剧情');
 INSERT INTO `movie_type` (`id`, `movie_type`) VALUES ('3', '战争');
 
+-- /********                     旅游计划模块开始                  *******/
 -- ----------------------------
 -- 火车订单表 -- 便于做旅行计划
 -- ----------------------------
-DROP TABLE IF EXISTS `train_order`;
-CREATE TABLE `train_order`  (
+DROP TABLE IF EXISTS `travel_train_order`;
+CREATE TABLE `travel_train_order`  (
   `uuid` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '订单号',
   `order_time` bigint(8) NOT NULL DEFAULT 0 COMMENT '订单时间',
   `train_start_time` bigint(8) NOT NULL DEFAULT 0 COMMENT '发车时间',
@@ -241,9 +242,24 @@ CREATE TABLE `train_order`  (
 -- ----------------------------
 -- Records of train_order
 -- ----------------------------
-INSERT INTO `train_order` VALUES ('EC09993530', 1535977540, 1538202600, 'G237', '北京南', '北京南', '唐山', '唐山', 'uuid1', '郑玉虹', 0, 2, '02', '13A号', 107.0, 0);
-INSERT INTO `train_order` VALUES ('EC37796700', 1535977540, 1538202600, 'D904', '深圳北', '深圳北', '北京西', '北京西', 'uuid1', '郑玉虹', 0, 5, '13', '33号下铺', 1190.0, 0);
+INSERT INTO `travel_train_order` VALUES ('EC09993530', 1535977540, 1538202600, 'G237', '北京南', '北京南', '唐山', '唐山', 'uuid1', '郑玉虹', 0, 2, '02', '13A号', 107.0, 0);
+INSERT INTO `travel_train_order` VALUES ('EC37796700', 1535977540, 1538202600, 'D904', '深圳北', '深圳北', '北京西', '北京西', 'uuid1', '郑玉虹', 0, 5, '13', '33号下铺', 1190.0, 0);
 
+-- ----------------------------
+-- 火车订单和用户的中间表 travel_user_train_order
+-- ----------------------------
+DROP TABLE IF EXISTS `travel_user_train_order`;
+CREATE TABLE `travel_user_train_order`  (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(11) NOT NULL COMMENT '用户id',
+  `traver_train_order_uuid` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '火车订单号',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+-- ----------------------------
+-- 飞机订单表 -- 便于做旅行计划
+-- ----------------------------
 
-
-
+-- ----------------------------
+-- 汽车订单表 -- 便于做旅行计划
+-- ----------------------------
+-- /********                     旅游计划模块结束                  *******/
